@@ -35,7 +35,7 @@ script:
 - cmake -DBOOST_ROOT=$boost_installation_prefix ..
 - cmake --build .
 - cd tests
-- ctests -VV
+- ctest -VV
 
 notifications:
   recipients:
