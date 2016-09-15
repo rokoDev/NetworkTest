@@ -1,5 +1,5 @@
 # указываем минимальную версию cmake (если версия cmake страше, то произойдет аварийный выход)
-cmake_minimum_required(VERSION 3.6.1)
+cmake_minimum_required(VERSION 3.0.2) #3.6.1
 
 # cmake_policy(SET CMP0048 NEW)
 
