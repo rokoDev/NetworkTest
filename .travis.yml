@@ -6,9 +6,11 @@ language: cpp
 compiler:
   - clang
   - gcc
+  
+os:
+- osx
 
 install:
- -  brew install cmake
   - sudo apt-get update -qq
   - sudo apt-get install libboost-test-dev
 
