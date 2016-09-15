@@ -13,8 +13,11 @@ install:
 
 script:
 - mkdir build
-- cd build && cmake -DBOOST_ROOT=$boost_installation_prefix .. && cmake --build .
-- cd tests && ctests -VV
+- cd build
+- cmake -DBOOST_ROOT=$boost_installation_prefix ..
+- cmake --build .
+- cd tests
+- ctests -VV
 
 notifications:
   recipients:
