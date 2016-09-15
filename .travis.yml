@@ -15,3 +15,11 @@ script:
 - mkdir build
 - cd build && cmake -DBOOST_ROOT=$boost_installation_prefix .. && cmake --build .
 - cd tests && ctests -VV
+
+notifications:
+  recipients:
+    - mishaDoter@gmail.com
+  email:
+    on_success: change
+    on_failure: always
+    
