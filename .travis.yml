@@ -14,7 +14,7 @@ compiler:
 before_install:
   - if [ $TRAVIS_OS_NAME = osx ]; then
       brew update;
-      brew upgrade cmake;
+      brew upgrade cmake 3.6.1;
     fi;
 
 addons:
