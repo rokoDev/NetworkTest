@@ -15,7 +15,8 @@ before_install:
   - if [ $TRAVIS_OS_NAME = osx ]; then
       brew update;
     fi;
-   - ($dir/configure | cmake $dir) ; make ; sudo checkinstall
+  - sudo apt-get update -qq
+  - sudo apt-get install cmake
 
 addons:
   apt:
