@@ -15,6 +15,7 @@ before_install:
   - if [ $TRAVIS_OS_NAME = osx ]; then
       brew update;
     fi;
+   - ($dir/configure | cmake $dir) ; make ; sudo checkinstall
 
 addons:
   apt:
