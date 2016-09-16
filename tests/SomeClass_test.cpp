@@ -9,6 +9,7 @@
 #define BOOST_TEST_DYN_LINK
 #include <boost/test/unit_test.hpp>
 
+#include "config.h"
 #include "Rectangle.h"
 #include "SomeClass_test.hpp"
 
@@ -25,4 +26,10 @@ BOOST_AUTO_TEST_CASE(area_test)
     Rectangle rect;
     rect.set_values(2, 3);
     BOOST_TEST(6 == rect.area());
+}
+
+BOOST_AUTO_TEST_CASE(config_test)
+{
+    auto major = SimpleNet::Version::Major;
+    BOOST_TEST(0 == major);
 }

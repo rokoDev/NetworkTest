@@ -1,10 +1,6 @@
 # указываем минимальную версию cmake (если версия cmake страше, то произойдет аварийный выход)
 cmake_minimum_required(VERSION 3.0.2) #3.6.1
 
-# создаем строковую переменную
-set(LibName "SimpleNet")
-set(LibName ${LibName} PARENT_SCOPE)
-
 # даем нашей библиотеке имя и указываем список используемых языков программирования
 # также эта команда устанавливает значение PROJECT_SOURCE_DIR в переменной <PROJECT-NAME>_SOURCE_DIR
 # а также PROJECT_BINARY_DIR в переменной <PROJECT-NAME>_BINARY_DIR
@@ -13,10 +9,23 @@ set(LibName ${LibName} PARENT_SCOPE)
 # можно прочесть в переменных <PROJECT-NAME>_VERSION, <PROJECT-NAME>_VERSION_MAJOR, <PROJECT-NAME>_VERSION_MINOR,
 # <PROJECT-NAME>_VERSION_PATCH и <PROJECT-NAME>_VERSION_TWEAK соответственно
 project(${LibName} 
-		VERSION 1.0.0.0
+		VERSION 0.0.0.1
 		LANGUAGES CXX)
-
-
+		
+## Git (and its revision)
+find_package(Git QUIET) # if we don't find git or FindGit.cmake is not on the system we ignore it.
+## GetGitRevisionDescription module to retreive branch and revision information from Git
+## Starting with Git 1.9 the module will be part of official cMake distribution, until then it has to be
+## part of the application
+## The Git module will trigger a reconfiguration for each pull that will bring a new revision on the local repository
+set (VCS_REVISION "-1")
+if(GIT_FOUND)
+    include(GetGitRevisionDescription)
+    get_git_head_revision(GIT_REFSPEC GIT_SHA1)
+    message(STATUS "GIT branch ${GIT_REFSPEC}")
+    message(STATUS "GIT revision ${GIT_SHA1}")
+    set (VCS_REVISION ${GIT_SHA1})
+endif()
 
 # вывод всех переменных CMAKE и их значений
 #[[
@@ -25,9 +34,6 @@ foreach (_variableName ${_variableNames})
     message(STATUS "${_variableName}=${${_variableName}}")
 endforeach()
 ]]
-
-set(LIB_HEADERS ${CMAKE_SOURCE_DIR}/include/${LibName})
-set(LIB_HEADERS ${LIB_HEADERS} PARENT_SCOPE)
 
 # присоединяем пути для поиска заголовочных файлов в конец списка путей по умолчанию
 # также есть возможность явно указать куда присоединить эти пути в начало или в конец
@@ -40,9 +46,13 @@ set(LIB_INSTALL_PATH ${CMAKE_SOURCE_DIR}/installed/lib)
 # указываем путь куда установятся заголовочные файлы
 set(HEADERS_INSTALL_PATH ${CMAKE_SOURCE_DIR}/installed/headers)
 
+# создаем файл с версией библиотеки
+configure_file(config.cpp.in config.cpp)
+
 # создаю список исходников
 set(SOURCES
 			Rectangle.cpp
+			${CMAKE_CURRENT_BINARY_DIR}/config.cpp
 			)
 
 # создаю объектные файлы чтобы потом не пересоздавать их когда буду собирать библиотеку и исполнительный файл для тестов

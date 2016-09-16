@@ -1,0 +1,10 @@
+#include "config.h"
+
+using namespace SimpleNet;
+
+const int Version::Major = ${${LibName}_VERSION_MAJOR};
+const int Version::Minor = ${${LibName}_VERSION_MINOR};
+const int Version::Patch = ${${LibName}_VERSION_PATCH};
+const int Version::Tweak = ${${LibName}_VERSION_TWEAK};
+const std::string Version::String = "${${LibName}_VERSION}";
+const std::string Version::GIT_SHA1 = "@GIT_SHA1@";
