@@ -41,7 +41,9 @@ before_install:
 addons:
   apt:
     sources:
-        - boost-latest
+    - boost-latest
+    packages:
+    - cmake
 
 install:
 - cmake --version
