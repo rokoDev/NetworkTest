@@ -11,13 +11,19 @@ compiler:
   - clang
   - gcc
   
+# sudo: required
 
 before_script:
     - if [ $TRAVIS_OS_NAME = osx ]; then
-      brew update; 
-      brew install cmake;
+      brew update;
     fi;
+    - brew install cmake
     
+# before_install:
+#  - if [ $TRAVIS_OS_NAME = osx ]; then
+#      brew update;
+#    fi;
+#    brew install cmake
 
 addons:
   apt:
