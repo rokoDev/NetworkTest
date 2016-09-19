@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 rm -rf build installed
 
@@ -9,7 +9,7 @@ cmake -DBOOST_ROOT=$boost_installation_prefix ..
 cmake --build .
 
 cd tests
-ctest -VV
+ctest -VV || exit 1
 
-#cd ..
-#make install
+cd ..
+make install
