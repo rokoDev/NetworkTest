@@ -30,13 +30,7 @@ install:
 #  - sudo apt-get update -qq
 #  - sudo apt-get install libboost-test-dev
 
-script:
-- cmake -E make_directory build # - mkdir build
-- cd build
-- cmake -DBOOST_ROOT=$boost_installation_prefix ..
-- cmake --build .
-- cd tests
-- ctest -VV
+script: ./scripts/build_and_test.sh
 
 notifications:
   recipients:
