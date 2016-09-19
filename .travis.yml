@@ -30,7 +30,7 @@ install:
 #  - sudo apt-get update -qq
 #  - sudo apt-get install libboost-test-dev
 
-script: ./scripts/build_and_test.sh
+script: ./scripts/build_test_install.sh
 
 notifications:
   recipients:
