@@ -18,9 +18,11 @@ before_install: ./scripts/before_install.sh
 #    fi;//
 
 #addons:
-#  apt:
+  apt:
 #    sources:
 #        - boost-latest
+    pascages:
+    - boost-build
 
 install:
 #- cmake --version
