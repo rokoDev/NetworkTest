@@ -17,10 +17,10 @@ compiler:
   
 before_install: ./scripts/before_install.sh
 
-#addons:
-#  apt:
-#    sources:
-#        - boost-latest
+addons:
+ apt:
+   sources:
+       - boost-latest
 
 #install:
 
