@@ -17,11 +17,11 @@ before_install: ./scripts/before_install.sh
 #      brew upgrade cmake;
 #    fi;//
 
-#addons:
+addons:
   apt:
 #    sources:
 #        - boost-latest
-    pascages:
+    packages:
     - boost-build
 
 install:
