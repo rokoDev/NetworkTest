@@ -7,6 +7,8 @@ language: cpp
 os:
 - osx
 
+osx_image: xcode8
+
 compiler:
   - clang
   - gcc
@@ -17,12 +19,10 @@ before_install: ./scripts/before_install.sh
 #      brew upgrade cmake;
 #    fi;//
 
-addons:
-  apt:
+#addons:
+#  apt:
 #    sources:
 #        - boost-latest
-    packages:
-    - boost-build
 
 install:
 #- cmake --version
