@@ -2,14 +2,16 @@
 
 rm -rf build installed
 
-cmake -E make_directory build #mkdir build
+cmake -E make_directory build
 cd build
 
 cmake -DBOOST_ROOT=$boost_installation_prefix ..
 cmake --build .
 
 cd tests
-ctest -VV || exit 1
-
-cd ..
-make install
+ctest -VV
+if [ $? -eq 0 ]
+then
+	cd ..
+	make install
+fi
