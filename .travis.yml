@@ -13,12 +13,11 @@ matrix:
          apt:
            sources: 
              - ['ubuntu-toolchain-r-test']
-             - kalakris-cmake
              #- george-edison55-precise-backports
            packages: 
              - ['g++-4.7']
-             - cmake
-             - cmake-data
+             #- cmake
+             #- cmake-data
 #    - os: osx
 #      osx_image: beta-xcode6.1
 #      compiler: clang
