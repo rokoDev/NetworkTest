@@ -47,10 +47,8 @@ before_install: ./scripts/before_install.sh
 install:
   # Download and install Boost
   - |
-    if [[ ${TRAVIS_OS_NAME} == "linux"]]
-    then
-      #if [ ! -f "${DEPS_DIR}/boost/${BOOST_VERSION}_cached" ]
-      #then
+    if [[ ${TRAVIS_OS_NAME} == "linux"]]; then
+      if [ ! -f "${DEPS_DIR}/boost/${BOOST_VERSION}_cached" ]; then
         # create dirs for source and install
         mkdir -p ${DEPS_DIR}/boost${BOOST_VERSION}
         mkdir -p ${DEPS_DIR}/boost
@@ -64,10 +62,11 @@ install:
         ./b2 -d0 install
         popd
         touch ${DEPS_DIR}/boost/${BOOST_VERSION}_cached
-      #else
-      #  echo 'Using cached Boost ${BOOST_VERSION} libraries.'
-      #fi
+      else
+        echo 'Using cached Boost ${BOOST_VERSION} libraries.'
+      fi
       export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost"
+      export BOOST_ROOT=${DEPS_DIR}/boost
     fi
 
 script: ./scripts/build_test_install.sh
