@@ -30,8 +30,8 @@ if [ $TRAVIS_OS_NAME = osx ]
 then
 	brew update
     brew outdated cmake || brew upgrade cmake
-    brew outdated boost || brew upgrade boost;
-elif [ ${TRAVIS_OS_NAME} == linux && ${BOOST_VERSION} != default ]#[ $TRAVIS_OS_NAME = linux ]
+    brew outdated boost || brew upgrade boost
+elif [ ${TRAVIS_OS_NAME} == linux ]# && ${BOOST_VERSION} != default ]#[ $TRAVIS_OS_NAME = linux ]
 then
   echo "this is linux blablabla"
   mkdir ~/cmake_tmp
