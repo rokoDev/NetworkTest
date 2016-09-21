@@ -1,5 +1,10 @@
 #! /bin/bash
 
+ANSI_RED="\033[31;1m"
+ANSI_GREEN="\033[32;1m"
+ANSI_RESET="\033[0m"
+ANSI_CLEAR="\033[0K"
+
 travis_retry() {
   local result=0
   local count=1
