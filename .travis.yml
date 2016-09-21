@@ -1,14 +1,15 @@
-branches:
-  only:
-    - master
-
 language: cpp
-sudo: required
 
 env:
   global:
     - DEPS_DIR=${TRAVIS_BUILD_DIR}/deps
     - BOOST_VERSION=default
+    
+sudo: required
+    
+branches:
+  only:
+    - master
   
 matrix:
   include:
@@ -40,10 +41,6 @@ matrix:
 #    - os: osx
 #      osx_image: xcode8
 #      compiler: gcc
-  
-branches:
-  only:
-  - master
   
 before_install: ./scripts/before_install.sh
 
