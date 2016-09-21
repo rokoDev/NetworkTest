@@ -13,10 +13,11 @@ matrix:
          apt:
            sources: 
              - ['ubuntu-toolchain-r-test']
-             - boost-latest
+             #- boost-latest
              #- george-edison55-precise-backports
            packages: 
              - ['g++-4.7']
+             - boost-build
              #- cmake
              #- cmake-data
 #    - os: osx
