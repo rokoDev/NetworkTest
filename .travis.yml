@@ -6,18 +6,24 @@ language: cpp
   
 matrix:
   include:
-    - os: osx
-      osx_image: beta-xcode6.1
-      compiler: clang
-    - os: osx
-      osx_image: xcode8
-      compiler: clang
-    - os: osx
-      osx_image: beta-xcode6.1
-      compiler: gcc
-    - os: osx
-      osx_image: xcode8
-      compiler: gcc
+     - os: linux
+       compiler: gcc
+       addons:
+         apt:
+           sources: ['ubuntu-toolchain-r-test']
+           packages: ['g++-4.7']
+#    - os: osx
+#      osx_image: beta-xcode6.1
+#      compiler: clang
+#    - os: osx
+#      osx_image: xcode8
+#      compiler: clang
+#    - os: osx
+#      osx_image: beta-xcode6.1
+#      compiler: gcc
+#    - os: osx
+#      osx_image: xcode8
+#      compiler: gcc
   
 branches:
   only:
