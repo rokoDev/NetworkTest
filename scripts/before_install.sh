@@ -40,8 +40,8 @@ then
   CMAKE_URL="https://cmake.org/files/v3.6/cmake-$cmake_version-Linux-x86_64.tar.gz"
   wget $CMAKE_URL
   tar xf cmake-$cmake_version-Linux-x86_64.tar.gz
-  sudo cp -r cmake-$cmake_version-Linux-x86_64/* /usr/local
-  #sudo cp -r cmake-$cmake_version-Linux-x86_64/* /usr
+  #sudo cp -r cmake-$cmake_version-Linux-x86_64/* /usr/local
+  sudo cp -r cmake-$cmake_version-Linux-x86_64/* /usr
   rm -rf ~/cmake_tmp
   #CMAKE_URL="http://www.cmake.org/files/v3.3/cmake-3.3.1-Linux-x86_64.tar.gz"
   #mkdir cmake && travis_retry wget --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
@@ -60,7 +60,7 @@ then
     travis_retry wget --no-check-certificate --quiet -O - ${BOOST_URL} | tar --strip-components=1 -xz -C ${DEPS_DIR}/boost${BOOST_VERSION}
     pushd ${DEPS_DIR}/boost${BOOST_VERSION}
     # configure and install
-    echo "using gcc : 4.8 : g++-4.8 ;" > $HOME/user-config.jam
+    echo "using gcc : 4.6 : g++-4.6 ;" > $HOME/user-config.jam
     ./bootstrap.sh --prefix=${DEPS_DIR}/boost/ --with-libraries=test
     ./b2 -d0 install
     popd
