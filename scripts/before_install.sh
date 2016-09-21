@@ -40,7 +40,8 @@ then
   CMAKE_URL="https://cmake.org/files/v3.6/cmake-$cmake_version-Linux-x86_64.tar.gz"
   wget $CMAKE_URL
   tar xf cmake-$cmake_version-Linux-x86_64.tar.gz
-  sudo cp -r cmake-$cmake_version-Linux-x86_64/* /usr
+  sudo cp -r cmake-$cmake_version-Linux-x86_64/* /usr/local
+  #sudo cp -r cmake-$cmake_version-Linux-x86_64/* /usr
   rm -rf ~/cmake_tmp
   #CMAKE_URL="http://www.cmake.org/files/v3.3/cmake-3.3.1-Linux-x86_64.tar.gz"
   #mkdir cmake && travis_retry wget --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
