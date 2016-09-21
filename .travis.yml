@@ -4,6 +4,11 @@ branches:
 
 language: cpp
 sudo: required
+
+env:
+  global:
+    - DEPS_DIR=${TRAVIS_BUILD_DIR}/deps
+    - BOOST_VERSION=default
   
 matrix:
   include:
@@ -13,13 +18,16 @@ matrix:
          apt:
            sources: 
              - ['ubuntu-toolchain-r-test']
-             - boost-latest
+             #- boost-latest
              #- george-edison55-precise-backports
            packages: 
              - ['g++-4.7']
-             - libboost-test1.60.0
+             #- libboost-test1.60.0
              #- cmake
              #- cmake-data
+       env:
+         - BOOST_VERSION="1_61_0" # Boost 1.61
+         - BOOST_URL="http://sourceforge.net/projects/boost/files/boost/1.61.0/boost_1_61_0.tar.gz"
 #    - os: osx
 #      osx_image: beta-xcode6.1
 #      compiler: clang
@@ -45,6 +53,28 @@ before_install: ./scripts/before_install.sh
 #    - boost-latest
 
 #install:
+     # Download and install Boost
+     - |
+       if [[ ${TRAVIS_OS_NAME} == "linux" && ${BOOST_VERSION} != "default" ]]; then
+         if [ ! -f "${DEPS_DIR}/boost/${BOOST_VERSION}_cached" ]; then
+           # create dirs for source and install
+           mkdir -p ${DEPS_DIR}/boost${BOOST_VERSION}
+           mkdir -p ${DEPS_DIR}/boost
+           rm -rf ${DEPS_DIR}/boost/*
+           # download
+           travis_retry wget --no-check-certificate --quiet -O - ${BOOST_URL} | tar --strip-components=1 -xz -C ${DEPS_DIR}/boost${BOOST_VERSION}
+           pushd ${DEPS_DIR}/boost${BOOST_VERSION}
+           # configure and install
+           echo "using gcc : 4.8 : g++-4.8 ;" > $HOME/user-config.jam
+           ./bootstrap.sh --prefix=${DEPS_DIR}/boost/ --with-libraries=program_options,filesystem,system,thread,test,timer,chrono
+           ./b2 -d0 install
+           popd
+           touch ${DEPS_DIR}/boost/${BOOST_VERSION}_cached
+         else
+           echo 'Using cached Boost ${BOOST_VERSION} libraries.'
+         fi
+         export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost"
+       fi
 
 script: ./scripts/build_test_install.sh
 
