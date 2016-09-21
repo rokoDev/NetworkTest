@@ -28,7 +28,7 @@ before_install: ./scripts/before_install.sh
 #addons:
 #  apt:
 #    sources:
-#    - boost-latest//
+#    - boost-latest
 
 #install:
 
