@@ -8,19 +8,23 @@ os:
 - osx
 
 osx_image:
-    - beta-xcode6.1
-    - xcode8
+- beta-xcode6.1
+- xcode8
 
 compiler:
-  - clang
-  - gcc
+- clang
+- gcc
+  
+branches:
+  only:
+  - master
   
 before_install: ./scripts/before_install.sh
 
 addons:
- apt:
-   sources:
-       - boost-latest
+  apt:
+    sources:
+    - boost-latest
 
 #install:
 
