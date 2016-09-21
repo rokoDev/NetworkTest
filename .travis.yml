@@ -3,6 +3,7 @@ branches:
     - master
 
 language: cpp
+sudo: required
   
 matrix:
   include:
