@@ -51,28 +51,28 @@ then
 #Download and install Boost
 #elif [[ ${TRAVIS_OS_NAME} == "linux" && ${BOOST_VERSION} != "default" ]]
 #then
-  # if [ ! -f "${DEPS_DIR}/boost/${BOOST_VERSION}_cached" ]
-#   then
-#     # create dirs for source and install
-#     mkdir -p ${DEPS_DIR}/boost${BOOST_VERSION}
-#     mkdir -p ${DEPS_DIR}/boost
-#     rm -rf ${DEPS_DIR}/boost/*
-#     # download
-#     travis_retry wget --no-check-certificate --quiet -O - ${BOOST_URL} | tar --strip-components=1 -xz -C ${DEPS_DIR}/boost${BOOST_VERSION}
-#     pushd ${DEPS_DIR}/boost${BOOST_VERSION}
-#     # configure and install
-#     echo "using gcc : 4.6 : g++-4.6 ;" > $HOME/user-config.jam
-#     ./bootstrap.sh --prefix=${DEPS_DIR}/boost/ --with-libraries=test
-#     ./b2 -d0 install
-#     popd
-#     touch ${DEPS_DIR}/boost/${BOOST_VERSION}_cached
-#   else
-#     echo 'Using cached Boost ${BOOST_VERSION} libraries.'
-#   fi
-#     export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost"
-#     export BOOST_ROOT=${DEPS_DIR}/boost
-#     
-#     #export BOOST_ROOT="/opt/boost/boost_1_57_0"
-# 	export BOOST_INCLUDE="${DEPS_DIR}/boost/include"
-# 	export BOOST_LIBDIR="${DEPS_DIR}/boost/lib"
+  if [ ! -f "${DEPS_DIR}/boost/${BOOST_VERSION}_cached" ]
+  then
+    # create dirs for source and install
+    mkdir -p ${DEPS_DIR}/boost${BOOST_VERSION}
+    mkdir -p ${DEPS_DIR}/boost
+    rm -rf ${DEPS_DIR}/boost/*
+    # download
+    travis_retry wget --no-check-certificate --quiet -O - ${BOOST_URL} | tar --strip-components=1 -xz -C ${DEPS_DIR}/boost${BOOST_VERSION}
+    pushd ${DEPS_DIR}/boost${BOOST_VERSION}
+    # configure and install
+    echo "using gcc : 4.8 : g++-4.8 ;" > $HOME/user-config.jam
+    ./bootstrap.sh --prefix=${DEPS_DIR}/boost/ --with-libraries=test
+    ./b2 -d0 install
+    popd
+    touch ${DEPS_DIR}/boost/${BOOST_VERSION}_cached
+  else
+    echo 'Using cached Boost ${BOOST_VERSION} libraries.'
+  fi
+    export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost"
+    export BOOST_ROOT=${DEPS_DIR}/boost
+    
+    #export BOOST_ROOT="/opt/boost/boost_1_57_0"
+	export BOOST_INCLUDE="${DEPS_DIR}/boost/include"
+	export BOOST_LIBDIR="${DEPS_DIR}/boost/lib"
 fi

@@ -14,7 +14,9 @@ branches:
 matrix:
   include:
      - os: linux
-       compiler: clang
+       dist: trusty
+       compiler: gcc
+       sudo: required
        addons:
          apt:
            sources: 
@@ -24,13 +26,13 @@ matrix:
            packages: 
              #- ['g++-4.7']
              - g++-4.8
-             - libboost-test1.60-dev
+             #- libboost-test1.60-dev
              #- libboost-test1.60.0
              #- cmake
              #- cmake-data
        env:
-         - BOOST_VERSION="1_61_0" # Boost 1.61
-         - BOOST_URL="http://sourceforge.net/projects/boost/files/boost/1.61.0/boost_1_61_0.tar.gz"
+         - BOOST_VERSION="1_60_0" # Boost 1.61
+         - BOOST_URL="http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.gz"
 #    - os: osx
 #      osx_image: beta-xcode6.1
 #      compiler: clang
