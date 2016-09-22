@@ -8,7 +8,7 @@
 # 7. запускаем тесты >> ctest -V
 
 # указываем минимальную версию cmake (если версия cmake страше, то произойдет аварийный выход)
-cmake_minimum_required(VERSION 3.6.1) #3.6.1
+cmake_minimum_required(VERSION ${cmake_version})
 
 project(${LibName}_test)
 

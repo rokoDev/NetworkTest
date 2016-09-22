@@ -58,7 +58,8 @@ then
     mkdir -p ${DEPS_DIR}/boost
     rm -rf ${DEPS_DIR}/boost/*
     # download
-    travis_retry wget --no-check-certificate --quiet -O - ${BOOST_URL} | tar --strip-components=1 -xz -C ${DEPS_DIR}/boost${Boost_VERSION}
+    #travis_retry wget --no-check-certificate --quiet -O - ${BOOST_URL} | tar --strip-components=1 -xz -C ${DEPS_DIR}/boost${Boost_VERSION}
+    travis_retry wget --no-check-certificate -O - ${BOOST_URL} | tar --strip-components=1 -xz -C ${DEPS_DIR}/boost${Boost_VERSION}
     pushd ${DEPS_DIR}/boost${Boost_VERSION}
     # configure and install
     echo "using gcc : 4.8 : g++-4.8 ;" > $HOME/user-config.jam

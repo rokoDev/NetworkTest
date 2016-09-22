@@ -1,5 +1,5 @@
 # указываем минимальную версию cmake (если версия cmake страше, то произойдет аварийный выход)
-cmake_minimum_required(VERSION 3.6.1) #3.6.1
+cmake_minimum_required(VERSION ${cmake_version})
 
 # даем нашей библиотеке имя и указываем список используемых языков программирования
 # также эта команда устанавливает значение PROJECT_SOURCE_DIR в переменной <PROJECT-NAME>_SOURCE_DIR
