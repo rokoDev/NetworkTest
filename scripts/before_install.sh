@@ -86,9 +86,9 @@ then
   BOOST_UNDERSCORE_VERSION=${BOOST_VERSION//./_}
   #echo "BOOST_UNDERSCORE_VERSION:$BOOST_UNDERSCORE_VERSION"
 
-  mkdir deps
-  DEPS_DIR=deps
-  pushd deps
+  #mkdir deps
+  #DEPS_DIR=deps
+  pushd $DEPS_DIR
 
   mkdir boost
   pushd boost
@@ -110,8 +110,8 @@ then
   popd
   popd
 
-  export BOOST_ROOT="${DEPS_DIR}/boost"
+  export BOOST_ROOT="${DEPS_DIR}/boost/boost_${BOOST_UNDERSCORE_VERSION}"
   export BOOST_INCLUDEDIR="${DEPS_DIR}/boost/include"
-  export BOOST_INCLUDEDIR="${DEPS_DIR}/boost/lib"
+  export BOOST_LIBDIR="${DEPS_DIR}/boost/lib"
 
 fi
