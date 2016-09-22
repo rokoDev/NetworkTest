@@ -46,9 +46,9 @@ matrix:
 #      osx_image: xcode8
 #      compiler: gcc
   
-before_install: ./scripts/before_install.sh
+#before_install: ./scripts/before_install.sh
 
-install:
+install: ./scripts/before_install.sh
 
 script: ./scripts/build_test_install.sh
 
