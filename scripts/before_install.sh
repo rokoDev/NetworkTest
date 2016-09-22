@@ -42,6 +42,7 @@ then
   tar xf cmake-$cmake_version-Linux-x86_64.tar.gz
   #sudo cp -r cmake-$cmake_version-Linux-x86_64/* /usr/local
   sudo cp -r cmake-$cmake_version-Linux-x86_64/* /usr
+  cd ..
   rm -rf ~/cmake_tmp
   #CMAKE_URL="http://www.cmake.org/files/v3.3/cmake-3.3.1-Linux-x86_64.tar.gz"
   #mkdir cmake && travis_retry wget --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
@@ -70,4 +71,8 @@ then
   fi
     export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost"
     export BOOST_ROOT=${DEPS_DIR}/boost
+    
+    #export BOOST_ROOT="/opt/boost/boost_1_57_0"
+	export BOOST_INCLUDE="${DEPS_DIR}/boost/include"
+	export BOOST_LIBDIR="${DEPS_DIR}/boost/lib"
 fi
