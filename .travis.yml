@@ -14,7 +14,7 @@ branches:
 matrix:
   include:
      - os: linux
-       compiler: gcc
+       compiler: clang
        addons:
          apt:
            sources: 
