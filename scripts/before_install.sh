@@ -73,6 +73,6 @@ then
     export BOOST_ROOT=${DEPS_DIR}/boost
     
     #export BOOST_ROOT="/opt/boost/boost_1_57_0"
-	export BOOST_INCLUDE="${DEPS_DIR}/boost/include"
+	export BOOST_INCLUDEDIR="${DEPS_DIR}/boost/include"
 	export BOOST_LIBDIR="${DEPS_DIR}/boost/lib"
 fi
