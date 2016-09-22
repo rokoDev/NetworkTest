@@ -22,7 +22,9 @@ matrix:
              #- boost-latest
              #- george-edison55-precise-backports
            packages: 
-             - ['g++-4.7']
+             #- ['g++-4.7']
+             - g++-4.8
+             - libboost-test1.60-dev
              #- libboost-test1.60.0
              #- cmake
              #- cmake-data
