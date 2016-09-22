@@ -3,7 +3,7 @@ language: cpp
 env:
   global:
     - DEPS_DIR=${TRAVIS_BUILD_DIR}/deps
-    - BOOST_VERSION=default
+    - Boost_VERSION=default
     
 sudo: required
     
@@ -31,7 +31,7 @@ matrix:
              #- cmake
              #- cmake-data
        env:
-         - BOOST_VERSION="1_60_0" # Boost 1.61
+         - Boost_VERSION="1_60_0" # Boost 1.61
          - BOOST_URL="http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.gz"
 #    - os: osx
 #      osx_image: beta-xcode6.1
