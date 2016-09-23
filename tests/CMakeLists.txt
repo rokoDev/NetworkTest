@@ -22,7 +22,7 @@ set(Boost_USE_MULTITHREADED ON)
 enable_testing()
 
 # replace XX with the version you have
-set(Boost_ADDITIONAL_VERSIONS "1_60")
+#set(Boost_ADDITIONAL_VERSIONS "1_60")
 
 #USE_STATIC_BOOST
 
