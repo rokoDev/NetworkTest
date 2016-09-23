@@ -12,10 +12,18 @@ cmake_minimum_required(VERSION ${cmake_version})
 
 project(${LibName}_test)
 
+set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
+set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
+
+set(Boost_USE_STATIC_LIBS   ON)
+set(Boost_USE_MULTITHREADED ON)
+
 enable_testing()
 
 # replace XX with the version you have
 set(Boost_ADDITIONAL_VERSIONS "1.60")
+
+#USE_STATIC_BOOST
 
 #set(Boost_NO_SYSTEM_PATHS TRUE) 
 #if (Boost_NO_SYSTEM_PATHS)
@@ -26,8 +34,8 @@ set(Boost_ADDITIONAL_VERSIONS "1.60")
 #find_package(Boost REQUIRED regex date_time system filesystem thread graph program_options)
 #include_directories(${BOOST_INCLUDE_DIRS})
 
-list(APPEND Boost_LIBRARIES $ENV{BOOST_ROOT}/lib)
-list(APPEND Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
+#list(APPEND Boost_LIBRARIES $ENV{BOOST_ROOT}/lib)
+#list(APPEND Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
 
 message(STATUS "boost_root_dir   :${BOOST_ROOT}")
 message(STATUS "boost_include_dir:${BOOST_INCLUDEDIR}")
