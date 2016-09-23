@@ -26,8 +26,8 @@ set(Boost_ADDITIONAL_VERSIONS "1.60.0")
 #find_package(Boost REQUIRED regex date_time system filesystem thread graph program_options)
 #include_directories(${BOOST_INCLUDE_DIRS})
 
-list(APPEND Boost_LIBRARIES ${BOOST_ROOT}/lib)
-list(APPEND Boost_INCLUDE_DIR ${BOOST_ROOT}/include)
+list(APPEND Boost_LIBRARIES $ENV{BOOST_ROOT}/lib)
+list(APPEND Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
 
 message(STATUS "boost_root_dir   :${BOOST_ROOT}")
 message(STATUS "boost_include_dir:${BOOST_INCLUDEDIR}")
