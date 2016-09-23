@@ -15,8 +15,8 @@ project(${LibName}_test)
 set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
 set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
 
-#set(Boost_USE_STATIC_LIBS   ON)
-#set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_LIBS   ON)
+set(Boost_USE_MULTITHREADED ON)
 
 enable_testing()
 
