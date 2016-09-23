@@ -51,7 +51,7 @@ matrix:
 
 install: 
   - ./scripts/before_install.sh
-  - export BOOST_ROOT="${DEPS_DIR}/boost"
+  - export _ENV_BOOST_ROOT="${DEPS_DIR}/boost"
 
 script: ./scripts/build_test_install.sh
 
