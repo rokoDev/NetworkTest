@@ -17,6 +17,19 @@ enable_testing()
 # replace XX with the version you have
 set(Boost_ADDITIONAL_VERSIONS "1.60.0")
 
+#set(Boost_NO_SYSTEM_PATHS TRUE) 
+#if (Boost_NO_SYSTEM_PATHS)
+#  set(BOOST_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../3p/boost")
+#  set(BOOST_INCLUDE_DIRS "${BOOST_ROOT}/include")
+#  set(BOOST_LIBRARY_DIRS "${BOOST_ROOT}/lib")
+#endif (Boost_NO_SYSTEM_PATHS)
+#find_package(Boost REQUIRED regex date_time system filesystem thread graph program_options)
+#include_directories(${BOOST_INCLUDE_DIRS})
+
+message(STATUS "boost_root_dir   :${BOOST_ROOT}")
+message(STATUS "boost_include_dir:${BOOST_INCLUDEDIR}")
+message(STATUS "boost_lib_dir    :${BOOST_LIBRARYDIR}")
+
 # finds boost, triggers an error otherwise
 find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
 
