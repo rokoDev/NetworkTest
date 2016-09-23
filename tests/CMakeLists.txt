@@ -15,7 +15,7 @@ project(${LibName}_test)
 enable_testing()
 
 # replace XX with the version you have
-set(Boost_ADDITIONAL_VERSIONS "1.60.0")
+set(Boost_ADDITIONAL_VERSIONS "1.60")
 
 #set(Boost_NO_SYSTEM_PATHS TRUE) 
 #if (Boost_NO_SYSTEM_PATHS)
