@@ -104,7 +104,7 @@ then
   pushd boost_${BOOST_UNDERSCORE_VERSION}
 
   ./bootstrap.sh --prefix=../ --with-libraries=test
-  ./b2 -d0 install #link=static threading=multi install
+  ./b2 -d0 link=static threading=multi install
 
   popd
   popd
