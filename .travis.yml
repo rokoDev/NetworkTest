@@ -2,9 +2,9 @@ language: cpp
 
 env:
   global:
-    - DEPS_DIR=${TRAVIS_BUILD_DIR}/deps
+    - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
     - BOOST_VERSION=default
-    - BOOST_ROOT=${DEPS_DIR}/boost
+    - BOOST_ROOT="${DEPS_DIR}/boost"
     
 sudo: required
     
@@ -49,9 +49,7 @@ matrix:
   
 #before_install: ./scripts/before_install.sh
 
-install: 
-  - ./scripts/before_install.sh
-  - export _ENV_BOOST_ROOT="${DEPS_DIR}/boost"
+install: ./scripts/before_install.sh
 
 script: ./scripts/build_test_install.sh
 
