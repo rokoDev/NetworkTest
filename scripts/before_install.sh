@@ -111,7 +111,7 @@ then
   popd
 
   export BOOST_ROOT="${DEPS_DIR}/boost/boost_${BOOST_UNDERSCORE_VERSION}"
-  export BOOST_INCLUDEDIR="${DEPS_DIR}/boost/include/boost"
-  export BOOST_LIBDIR="${DEPS_DIR}/boost/lib"
+  export Boost_INCLUDEDIR="${DEPS_DIR}/boost/include/boost"
+  export Boost_LIBRARY_DIRS="${DEPS_DIR}/boost/lib"
 
 fi
