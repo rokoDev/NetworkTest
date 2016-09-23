@@ -116,7 +116,7 @@ then
 #   export CMAKE_LIBRARY_PATH="$Boost_LIBRARY_DIR:$CMAKE_LIBRARY_PATH"
 #   export CMAKE_INCLUDE_PATH="$Boost_INCLUDE_DIR:$CMAKE_INCLUDE_PATH"
 
-  export BOOST_ROOT="${DEPS_DIR}/boost"
+  #export BOOST_ROOT="${DEPS_DIR}/boost"
 #   export Boost_INCLUDEDIR="${DEPS_DIR}/boost/include/boost"
 #   export Boost_LIBRARY_DIRS="${DEPS_DIR}/boost/lib"
 
