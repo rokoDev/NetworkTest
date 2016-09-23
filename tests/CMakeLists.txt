@@ -18,7 +18,7 @@ set(BOOST_ROOT $ENV{BOOST_ROOT})
 
 set(Boost_USE_STATIC_LIBS   ON)
 set(Boost_USE_MULTITHREADED ON)
-set(Boost_VERSION	1.60.0)
+set(Boost_VERSION 106000)
 
 enable_testing()
 
