@@ -15,10 +15,10 @@ project(${LibName}_test)
 enable_testing()
 
 # replace XX with the version you have
-set(Boost_ADDITIONAL_VERSIONS "1.60" "1.60.0")
+set(Boost_ADDITIONAL_VERSIONS "1.60.0")
 
 # finds boost, triggers an error otherwise
-find_package(Boost 1.60 REQUIRED COMPONENTS unit_test_framework)
+find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
 
 #set(HEADERS ${CMAKE_SOURCE_DIR}/include/${LibName})
 
