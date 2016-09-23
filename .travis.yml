@@ -49,7 +49,9 @@ matrix:
   
 #before_install: ./scripts/before_install.sh
 
-install: ./scripts/before_install.sh
+install: 
+  - ./scripts/before_install.sh
+  - export CMAKE_MODULE_PATH="$BOOST_ROOT"
 
 script: ./scripts/build_test_install.sh
 
