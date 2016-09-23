@@ -86,8 +86,8 @@ then
   BOOST_UNDERSCORE_VERSION=${BOOST_VERSION//./_}
   #echo "BOOST_UNDERSCORE_VERSION:$BOOST_UNDERSCORE_VERSION"
 
-  #mkdir deps
-  #DEPS_DIR=deps
+  mkdir deps
+  DEPS_DIR=deps
   pushd $DEPS_DIR
 
   mkdir boost
