@@ -18,8 +18,8 @@ set(Boost_DEBUG 1)
 #set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
 #set(BOOST_ROOT $ENV{BOOST_ROOT})
 
-set(Boost_USE_STATIC_LIBS   ON)
-set(Boost_USE_MULTITHREADED ON)
+#set(Boost_USE_STATIC_LIBS   ON)
+#set(Boost_USE_MULTITHREADED ON)
 
 set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} $ENV{BOOST_ROOT}/include)
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} $ENV{BOOST_ROOT}/lib)
@@ -48,8 +48,7 @@ message(STATUS "boost_include_dir:${BOOST_INCLUDEDIR}")
 message(STATUS "boost_lib_dir    :${BOOST_LIBRARYDIR}")
 
 # finds boost, triggers an error otherwise
-#find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
-find_package(Boost REQUIRED COMPONENTS unit_test_framework)
+find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
 
 #set(HEADERS ${CMAKE_SOURCE_DIR}/include/${LibName})
 
