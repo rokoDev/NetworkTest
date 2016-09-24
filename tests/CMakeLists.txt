@@ -31,6 +31,10 @@ enable_testing()
 
 #USE_STATIC_BOOST
 
+ADD_LIBRARY(boost_unit_test_framework STATIC IMPORTED)
+SET_TARGET_PROPERTIES(boost_unit_test_framework PROPERTIES
+    IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-gcc48-mt-s-1_60.a)
+
 #set(Boost_NO_SYSTEM_PATHS TRUE) 
 #if (Boost_NO_SYSTEM_PATHS)
 #  set(BOOST_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../3p/boost")
@@ -48,7 +52,7 @@ message(STATUS "boost_include_dir:${BOOST_INCLUDEDIR}")
 message(STATUS "boost_lib_dir    :${BOOST_LIBRARYDIR}")
 
 # finds boost, triggers an error otherwise
-find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
+#find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
 
 #set(HEADERS ${CMAKE_SOURCE_DIR}/include/${LibName})
 
@@ -71,11 +75,12 @@ add_executable(test_executable
 )
 
 # indicates the include paths
-target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
+#target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
+target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
 
 # indicates the link paths
 target_link_libraries(test_executable 
-										${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+										boost_unit_test_framework #${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 										${LibName}
 										)
 
