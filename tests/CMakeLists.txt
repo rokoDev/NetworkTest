@@ -14,9 +14,9 @@ project(${LibName}_test)
 
 set(Boost_DEBUG 1)
 
-#set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
-#set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
-#set(BOOST_ROOT $ENV{BOOST_ROOT})
+set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
+set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
+set(BOOST_ROOT $ENV{BOOST_ROOT})
 
 #set(Boost_USE_STATIC_LIBS   ON)
 #set(Boost_USE_MULTITHREADED ON)
@@ -56,6 +56,7 @@ find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
 # также есть возможность явно указать куда присоединить эти пути в начало или в конец
 # для этого используются слова AFTER или BEFORE (смотри справку по cmake)
 include_directories("${LIB_HEADERS}")
+include_directories( ${BOOST_INCLUDEDIR} )
 
 #[[
 get_cmake_property(_variableNames VARIABLES)
