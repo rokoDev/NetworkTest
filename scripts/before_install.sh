@@ -106,6 +106,9 @@ then
   ./bootstrap.sh --prefix=../ --with-libraries=test
   #./b2 -d0 link=static threading=multi install
   ./b2 --layout=versioned -d0 link=static threading=multi runtime-link=static toolset=gcc install
+  
+  pushd ../lib
+  ls
 
   popd
   popd
