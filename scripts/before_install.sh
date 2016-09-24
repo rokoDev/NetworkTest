@@ -109,6 +109,7 @@ then
   
   pushd ../lib
   ls
+  popd
 
   popd
   popd
