@@ -111,6 +111,11 @@ then
   pushd ../lib
   ls
   popd
+  
+  echo "include dir contains >>"
+  pushd ../include
+  ls
+  popd
 
   popd
   popd
