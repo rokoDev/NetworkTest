@@ -80,7 +80,7 @@ target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
 
 # indicates the link paths
 target_link_libraries(test_executable 
-										boost_unit_test_framework #${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+										${boost_unit_test_framework} #${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 										${LibName}
 										)
 
