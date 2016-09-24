@@ -18,7 +18,7 @@ set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
 set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
 set(BOOST_ROOT $ENV{BOOST_ROOT})
 
-#set(Boost_USE_STATIC_LIBS   ON)
+set(Boost_USE_STATIC_LIBS   ON)
 #set(Boost_USE_MULTITHREADED ON)
 
 set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} $ENV{BOOST_ROOT}/include)
@@ -69,8 +69,6 @@ add_executable(test_executable
 	main.cpp
 	SomeClass_test.cpp
 )
-
-set(Boost_INCLUDE_DIRS ${BOOST_INCLUDEDIR})
 
 # indicates the include paths
 target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
