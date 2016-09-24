@@ -56,7 +56,6 @@ find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
 # также есть возможность явно указать куда присоединить эти пути в начало или в конец
 # для этого используются слова AFTER или BEFORE (смотри справку по cmake)
 include_directories("${LIB_HEADERS}")
-include_directories( ${BOOST_INCLUDEDIR} )
 
 #[[
 get_cmake_property(_variableNames VARIABLES)
@@ -70,6 +69,8 @@ add_executable(test_executable
 	main.cpp
 	SomeClass_test.cpp
 )
+
+set(Boost_INCLUDE_DIRS ${BOOST_INCLUDEDIR})
 
 # indicates the include paths
 target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
