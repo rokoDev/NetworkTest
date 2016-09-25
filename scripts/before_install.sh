@@ -113,7 +113,7 @@ then
   popd
   
   echo "include dir contains >>"
-  pushd ../include
+  pushd ../include/boost
   ls
   popd
 
