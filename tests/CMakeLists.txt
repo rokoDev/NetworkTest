@@ -52,7 +52,7 @@ message(STATUS "boost_include_dir:${BOOST_INCLUDEDIR}")
 message(STATUS "boost_lib_dir    :${BOOST_LIBRARYDIR}")
 
 # finds boost, triggers an error otherwise
-find_package(Boost 1.60 REQUIRED COMPONENTS unit_test_framework)
+find_package(Boost 1.60 REQUIRED COMPONENTS test)
 
 #set(HEADERS ${CMAKE_SOURCE_DIR}/include/${LibName})
 
