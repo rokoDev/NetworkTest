@@ -39,6 +39,13 @@ enable_testing()
 # finds boost, triggers an error otherwise
 #find_package(Boost 1.60 REQUIRED COMPONENTS unit_test_framework)
 
+FIND_PACKAGE(Boost)
+IF (Boost_FOUND)
+	message(STATUS "boost found!!!!!")
+    INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
+    ADD_DEFINITIONS( "-DHAS_BOOST" )
+ENDIF()
+
 # присоединяем пути для поиска заголовочных файлов в конец списка путей по умолчанию
 # также есть возможность явно указать куда присоединить эти пути в начало или в конец
 # для этого используются слова AFTER или BEFORE (смотри справку по cmake)
@@ -60,12 +67,7 @@ add_executable(test_executable
 # indicates the include paths
 #target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
 
-FIND_PACKAGE(Boost)
-IF (Boost_FOUND)
-	message(STATUS "boost found!!!!!")
-    INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
-    ADD_DEFINITIONS( "-DHAS_BOOST" )
-ENDIF()
+
 
 # indicates the link paths
 target_link_libraries(test_executable 
