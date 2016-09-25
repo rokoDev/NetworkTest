@@ -29,6 +29,8 @@ set(BOOST_ROOT $ENV{BOOST_ROOT})
 set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} $ENV{BOOST_ROOT}/include)
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} $ENV{BOOST_ROOT}/lib)
 
+set(Boost_INCLUDE_DIR ${BOOST_INCLUDEDIR})
+
 enable_testing()
 
 # replace XX with the version you have
