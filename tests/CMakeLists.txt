@@ -19,9 +19,9 @@ project(${LibName}_test)
 
 set(Boost_DEBUG 1)
 
-set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
-set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
-set(BOOST_ROOT $ENV{BOOST_ROOT})
+#set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
+#set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
+#set(BOOST_ROOT $ENV{BOOST_ROOT})
 
 #set(Boost_USE_STATIC_LIBS   ON)
 #set(Boost_USE_MULTITHREADED ON)
@@ -29,15 +29,15 @@ set(BOOST_ROOT $ENV{BOOST_ROOT})
 set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} $ENV{BOOST_ROOT})
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} $ENV{BOOST_ROOT}/lib)
 
-set(Boost_INCLUDE_DIR ${BOOST_INCLUDEDIR})
+#set(Boost_INCLUDE_DIR ${BOOST_INCLUDEDIR})
 
 enable_testing()
 
 # replace XX with the version you have
-set(Boost_ADDITIONAL_VERSIONS "1.60" "1.60.0")
+#set(Boost_ADDITIONAL_VERSIONS "1.60" "1.60.0")
 
 # finds boost, triggers an error otherwise
-find_package(Boost 1.60 REQUIRED COMPONENTS unit_test_framework)
+#find_package(Boost 1.60 REQUIRED COMPONENTS unit_test_framework)
 
 # присоединяем пути для поиска заголовочных файлов в конец списка путей по умолчанию
 # также есть возможность явно указать куда присоединить эти пути в начало или в конец
@@ -58,7 +58,14 @@ add_executable(test_executable
 )
 
 # indicates the include paths
-target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
+#target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
+
+FIND_PACKAGE(Boost)
+IF (Boost_FOUND)
+	message(STATUS "boost found!!!!!")
+    INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
+    ADD_DEFINITIONS( "-DHAS_BOOST" )
+ENDIF()
 
 # indicates the link paths
 target_link_libraries(test_executable 
