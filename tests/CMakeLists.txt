@@ -18,7 +18,7 @@ set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include/boost-1_60)
 set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
 set(BOOST_ROOT $ENV{BOOST_ROOT})
 
-set(Boost_USE_STATIC_LIBS   ON)
+#set(Boost_USE_STATIC_LIBS   ON)
 #set(Boost_USE_MULTITHREADED ON)
 
 set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} $ENV{BOOST_ROOT}/include/boost-1_60)
@@ -33,7 +33,7 @@ enable_testing()
 
 ADD_LIBRARY(boost_unit_test_framework STATIC IMPORTED)
 SET_TARGET_PROPERTIES(boost_unit_test_framework PROPERTIES
-    IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-gcc48-mt-s-1_60.a)
+    IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-gcc48-mt-1_60.dylib) #libboost_unit_test_framework-gcc48-mt-s-1_60.a)
 
 #set(Boost_NO_SYSTEM_PATHS TRUE) 
 #if (Boost_NO_SYSTEM_PATHS)
@@ -73,8 +73,6 @@ add_executable(test_executable
 	main.cpp
 	SomeClass_test.cpp
 )
-
-include_directories("${LIB_HEADERS}" "${BOOST_INCLUDEDIR}")
 
 # indicates the include paths
 target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
