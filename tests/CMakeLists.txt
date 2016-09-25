@@ -19,9 +19,9 @@ project(${LibName}_test)
 
 set(Boost_DEBUG 1)
 
-#set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
+set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
 #set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
-#set(BOOST_ROOT $ENV{BOOST_ROOT})
+set(BOOST_ROOT $ENV{BOOST_ROOT})
 
 #set(Boost_USE_STATIC_LIBS   ON)
 #set(Boost_USE_MULTITHREADED ON)
