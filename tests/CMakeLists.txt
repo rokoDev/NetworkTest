@@ -31,9 +31,9 @@ enable_testing()
 
 #USE_STATIC_BOOST
 
-ADD_LIBRARY(boost_unit_test_framework SHARED IMPORTED)
-SET_TARGET_PROPERTIES(boost_unit_test_framework PROPERTIES
-    IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework.so) #libboost_unit_test_framework-gcc48-mt-s-1_60.a)
+#ADD_LIBRARY(boost_unit_test_framework SHARED IMPORTED)
+#SET_TARGET_PROPERTIES(boost_unit_test_framework PROPERTIES
+#    IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework.so) #libboost_unit_test_framework-gcc48-mt-s-1_60.a)
 
 #set(Boost_NO_SYSTEM_PATHS TRUE) 
 #if (Boost_NO_SYSTEM_PATHS)
@@ -52,7 +52,7 @@ message(STATUS "boost_include_dir:${BOOST_INCLUDEDIR}")
 message(STATUS "boost_lib_dir    :${BOOST_LIBRARYDIR}")
 
 # finds boost, triggers an error otherwise
-#find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
+find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
 
 #set(HEADERS ${CMAKE_SOURCE_DIR}/include/${LibName})
 
