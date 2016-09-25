@@ -45,7 +45,7 @@ SET_TARGET_PROPERTIES(boost_unit_test_framework PROPERTIES
 #include_directories(${BOOST_INCLUDE_DIRS})
 
 #list(APPEND Boost_LIBRARIES $ENV{BOOST_ROOT}/lib)
-#list(APPEND Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
+list(APPEND Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include/boost-1_60)
 
 message(STATUS "boost_root_dir   :${BOOST_ROOT}")
 message(STATUS "boost_include_dir:${BOOST_INCLUDEDIR}")
@@ -75,8 +75,8 @@ add_executable(test_executable
 )
 
 # indicates the include paths
-#target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
-target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include/boost-1_60)
+target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
+#target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include/boost-1_60)
 
 # indicates the link paths
 target_link_libraries(test_executable 
