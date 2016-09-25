@@ -59,7 +59,7 @@ message(STATUS "boost_lib_dir    :${BOOST_LIBRARYDIR}")
 # присоединяем пути для поиска заголовочных файлов в конец списка путей по умолчанию
 # также есть возможность явно указать куда присоединить эти пути в начало или в конец
 # для этого используются слова AFTER или BEFORE (смотри справку по cmake)
-include_directories("${LIB_HEADERS}" "${BOOST_INCLUDEDIR}")
+include_directories(BEFORE ${LIB_HEADERS} ${BOOST_INCLUDEDIR})
 
 #[[
 get_cmake_property(_variableNames VARIABLES)
