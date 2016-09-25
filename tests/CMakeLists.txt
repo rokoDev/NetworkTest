@@ -27,7 +27,7 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} $ENV{BOOST_ROOT}/lib)
 enable_testing()
 
 # replace XX with the version you have
-#set(Boost_ADDITIONAL_VERSIONS "1_60")
+set(Boost_ADDITIONAL_VERSIONS "1_60")
 
 #USE_STATIC_BOOST
 
