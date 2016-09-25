@@ -31,7 +31,7 @@ enable_testing()
 
 #USE_STATIC_BOOST
 
-ADD_LIBRARY(boost_unit_test_framework STATIC IMPORTED)
+ADD_LIBRARY(boost_unit_test_framework SHARED IMPORTED)
 SET_TARGET_PROPERTIES(boost_unit_test_framework PROPERTIES
     IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-gcc48-mt-1_60.so) #libboost_unit_test_framework-gcc48-mt-s-1_60.a)
 
@@ -59,7 +59,7 @@ message(STATUS "boost_lib_dir    :${BOOST_LIBRARYDIR}")
 # присоединяем пути для поиска заголовочных файлов в конец списка путей по умолчанию
 # также есть возможность явно указать куда присоединить эти пути в начало или в конец
 # для этого используются слова AFTER или BEFORE (смотри справку по cmake)
-#include_directories(BEFORE ${LIB_HEADERS} ${BOOST_INCLUDEDIR})
+include_directories(BEFORE ${LIB_HEADERS} ${BOOST_INCLUDEDIR})
 
 #[[
 get_cmake_property(_variableNames VARIABLES)
@@ -73,7 +73,6 @@ add_executable(test_executable
 	main.cpp
 	SomeClass_test.cpp
 )
-include_directories(BEFORE ${LIB_HEADERS} ${BOOST_INCLUDEDIR})
 
 # indicates the include paths
 target_include_directories(test_executable PRIVATE ${BOOST_INCLUDEDIR}) #${Boost_INCLUDE_DIRS})
