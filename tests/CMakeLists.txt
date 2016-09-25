@@ -90,7 +90,7 @@ add_executable(test_executable
 								)
 								
 target_link_libraries(test_executable
-										${Boost_LIBRARIES}
+										#${Boost_LIBRARIES}
 										${LibName}
 										)
 
