@@ -18,8 +18,8 @@ enable_testing()
 
 #include_directories("${LIB_HEADERS}")
 
-#set(Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
-#set(Boost_LIBRARY_DIRS $ENV{BOOST_ROOT}/lib)
+set(Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
+set(Boost_LIBRARY_DIRS $ENV{BOOST_ROOT}/lib)
 
 #set(Boost_INCLUDE_DIR /home/travis/build/rokoDev/NetworkTest/deps/boost/include)
 
