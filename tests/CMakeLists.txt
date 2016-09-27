@@ -99,6 +99,8 @@ endforeach()
 set(Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
 set(Boost_LIBRARY_DIRS $ENV{BOOST_ROOT}/lib)
 
+set(Boost_INCLUDE_DIR /home/travis/build/rokoDev/NetworkTest/deps/boost/include)
+
 message(STATUS "Boost_INCLUDE_DIR0 >> ${Boost_INCLUDE_DIR}")
 message(STATUS "Boost_LIBRARY_DIRS0 >> ${Boost_LIBRARY_DIRS}")
 
@@ -126,4 +128,6 @@ if(Boost_FOUND)
 										)
 										
 	add_test(NAME test1 COMMAND test_executable)
+else()
+	message(STATUS "No Boost library were found")
 endif()
