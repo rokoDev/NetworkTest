@@ -123,7 +123,7 @@ if(Boost_FOUND)
 								)
 								
 	target_link_libraries( test_executable
-										${Boost_LIBRARIES}
+										${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 										${LibName}
 										)
 										
