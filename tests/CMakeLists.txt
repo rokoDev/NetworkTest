@@ -96,7 +96,9 @@ endforeach()
 
 #add_test(NAME test1 COMMAND test_executable)
 
-find_package( Boost REQUIRED )
+find_package( Boost 1.60 REQUIRED )
+message(STATUS "Boost_INCLUDE_DIR >> ${Boost_INCLUDE_DIR}")
+message(STATUS "Boost_LIBRARY_DIRS >> ${Boost_LIBRARY_DIRS}")
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 LINK_DIRECTORIES( ${Boost_LIBRARY_DIRS} )
 set( Boost_USE_STATIC_LIBS        OFF )
