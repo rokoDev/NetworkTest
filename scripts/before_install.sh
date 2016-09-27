@@ -103,10 +103,10 @@ then
 
   pushd boost_${BOOST_UNDERSCORE_VERSION}
 
-  ./bootstrap.sh --prefix=../ --with-libraries=test
+  ./bootstrap.sh #--prefix=../ --with-libraries=test
   #./b2 -d0 link=static threading=multi install
   #./b2 --layout=versioned -d0 link=static threading=multi runtime-link=static toolset=gcc install
-  ./b2 -d0 link=shared threading=multi install
+  ./b2 --prefix=../ --with-libraries=test -d0 link=shared threading=multi install
   
   pushd ../lib
   ls

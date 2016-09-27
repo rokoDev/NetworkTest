@@ -78,20 +78,40 @@ endforeach()
 # declares a test with our executable
 #add_test(NAME test1 COMMAND test_executable)
 
-set(Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
-set(Boost_LIBRARY_DIR $ENV{BOOST_ROOT}/lib)
-find_package(Boost COMPONENTS system filesystem REQUIRED)
-include_directories("${Boost_INCLUDE_DIR}" "${LIB_HEADERS}")
+#set(Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
+#set(Boost_LIBRARY_DIR $ENV{BOOST_ROOT}/lib)
+#find_package(Boost COMPONENTS system filesystem REQUIRED)
+#include_directories("${Boost_INCLUDE_DIR}" "${LIB_HEADERS}")
 #link_directories(${Boost_LIBRARY_DIR})
 
-add_executable(test_executable
+#add_executable(test_executable
+#								main.cpp
+#								SomeClass_test.cpp
+#								)
+								
+#target_link_libraries(test_executable
+										#${Boost_LIBRARIES}
+#										${LibName}
+#										)
+
+#add_test(NAME test1 COMMAND test_executable)
+
+find_package( Boost REQUIRED )
+INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
+LINK_DIRECTORIES( ${Boost_LIBRARY_DIRS} )
+set( Boost_USE_STATIC_LIBS        OFF )
+set( Boost_USE_MULTITHREADED      ON )
+set( Boost_USE_STATIC_RUNTIME     OFF )
+set( BOOST_ALL_DYN_LINK           ON ) # force dynamic linking for all libraries
+
+add_executable( test_executable
 								main.cpp
 								SomeClass_test.cpp
 								)
 								
-target_link_libraries(test_executable
-										#${Boost_LIBRARIES}
+target_link_libraries( test_executable
+										${Boost_LIBRARIES}
 										${LibName}
 										)
-
+										
 add_test(NAME test1 COMMAND test_executable)
