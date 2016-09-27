@@ -104,7 +104,7 @@ set(Boost_INCLUDE_DIR /home/travis/build/rokoDev/NetworkTest/deps/boost/include)
 message(STATUS "Boost_INCLUDE_DIR0 >> ${Boost_INCLUDE_DIR}")
 message(STATUS "Boost_LIBRARY_DIRS0 >> ${Boost_LIBRARY_DIRS}")
 
-find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 message(STATUS "Boost_INCLUDE_DIR >> ${Boost_INCLUDE_DIR}")
 message(STATUS "Boost_LIBRARY_DIRS >> ${Boost_LIBRARY_DIRS}")
