@@ -99,6 +99,9 @@ endforeach()
 set(Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
 set(Boost_LIBRARY_DIRS $ENV{BOOST_ROOT}/lib)
 
+message(STATUS "Boost_INCLUDE_DIR0 >> ${Boost_INCLUDE_DIR}")
+message(STATUS "Boost_LIBRARY_DIRS0 >> ${Boost_LIBRARY_DIRS}")
+
 find_package(Boost REQUIRED COMPONENTS unit_test_framework)
 
 message(STATUS "Boost_INCLUDE_DIR >> ${Boost_INCLUDE_DIR}")
