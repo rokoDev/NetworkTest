@@ -96,24 +96,31 @@ endforeach()
 
 #add_test(NAME test1 COMMAND test_executable)
 
-find_package( Boost 1.60 REQUIRED )
+set(Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
+set(Boost_LIBRARY_DIRS $ENV{BOOST_ROOT}/lib)
+
+find_package(Boost 1.60 REQUIRED COMPONENTS unit_test_framework)
+
 message(STATUS "Boost_INCLUDE_DIR >> ${Boost_INCLUDE_DIR}")
 message(STATUS "Boost_LIBRARY_DIRS >> ${Boost_LIBRARY_DIRS}")
-INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
-LINK_DIRECTORIES( ${Boost_LIBRARY_DIRS} )
-set( Boost_USE_STATIC_LIBS        OFF )
-set( Boost_USE_MULTITHREADED      ON )
-set( Boost_USE_STATIC_RUNTIME     OFF )
-set( BOOST_ALL_DYN_LINK           ON ) # force dynamic linking for all libraries
 
-add_executable( test_executable
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIR})
+	link_directories(${Boost_LIBRARY_DIRS})
+	set( Boost_USE_STATIC_LIBS        OFF )
+	set( Boost_USE_MULTITHREADED      ON )
+	set( Boost_USE_STATIC_RUNTIME     OFF )
+	set( BOOST_ALL_DYN_LINK           ON ) # force dynamic linking for all libraries
+
+	add_executable( test_executable
 								main.cpp
 								SomeClass_test.cpp
 								)
 								
-target_link_libraries( test_executable
+	target_link_libraries( test_executable
 										${Boost_LIBRARIES}
 										${LibName}
 										)
 										
-add_test(NAME test1 COMMAND test_executable)
+	add_test(NAME test1 COMMAND test_executable)
+endif()
