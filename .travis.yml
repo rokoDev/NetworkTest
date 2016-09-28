@@ -51,7 +51,7 @@ matrix:
 
 install: 
   - ./scripts/before_install.sh
-  - export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost/installed"
+  - export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost/installed/boost_1_60_0"
 
 script: ./scripts/build_test_install.sh
 
