@@ -32,6 +32,7 @@ set( Boost_USE_STATIC_LIBS        OFF )
 	set( Boost_USE_MULTITHREADED      ON )
 	set( Boost_USE_STATIC_RUNTIME     ON )
 	set( BOOST_ALL_DYN_LINK           OFF ) # force dynamic linking for all libraries
+set(Boost_NO_SYSTEM_PATHS ON)
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
