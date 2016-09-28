@@ -7,7 +7,9 @@ cmake_minimum_required(VERSION 3.6.1)
 
 project(${LibName}_test)
 
-set(Boost_DEBUG 1)
+set(Boost_DEBUG ON)
+
+set(Boost_DETAILED_FAILURE_MSG ON)
 
 #set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} $ENV{BOOST_ROOT})
 #set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} $ENV{BOOST_ROOT}/lib)
