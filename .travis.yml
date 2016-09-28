@@ -4,7 +4,7 @@ env:
   global:
     - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
     - BOOST_VERSION=default
-    - BOOST_ROOT="${DEPS_DIR}/boost"
+    - BOOST_ROOT="${DEPS_DIR}/boost/installed/boost_1_60_0"
     
 sudo: required
     
