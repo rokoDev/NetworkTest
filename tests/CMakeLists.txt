@@ -24,7 +24,7 @@ set(BOOST_ROOT $ENV{BOOST_ROOT})
 set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
 set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
 
-if(Boost_FOUND)
+#if(Boost_FOUND)
     include_directories("${LIB_HEADERS}")
 	
 
@@ -42,6 +42,6 @@ if(Boost_FOUND)
 										)
 										
 	add_test(NAME test1 COMMAND test_executable)
-else()
+#else()
 	message(STATUS "No Boost library were found!")
-endif()
+#endif()
