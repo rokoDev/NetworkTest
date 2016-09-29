@@ -39,5 +39,5 @@ find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
 										
 	add_test(NAME test1 COMMAND test_executable)
 #else()
-	message(STATUS "No Boost library were found!")
+#	message(STATUS "No Boost library were found!")
 #endif()
