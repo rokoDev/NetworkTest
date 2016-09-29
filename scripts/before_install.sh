@@ -109,7 +109,7 @@ then
 ./bootstrap.sh --prefix=../installed/boost_${BOOST_UNDERSCORE_VERSION} --with-libraries=test
   #./b2 -d0 link=static threading=multi install
   #./b2 --layout=versioned -d0 link=static threading=multi runtime-link=static toolset=gcc install
-  ./b2 --layout=tagged -d0 link=shared,static threading=multi install
+  ./b2 --layout=tagged -d0 link=shared threading=multi install
   
   pushd ../installed/boost_${BOOST_UNDERSCORE_VERSION}/lib
   echo "lib directory contains >>"
