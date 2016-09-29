@@ -8,7 +8,6 @@ cmake_minimum_required(VERSION ${cmake_version})
 project(${LibName}_test)
 
 set(Boost_DEBUG ON)
-
 set(Boost_DETAILED_FAILURE_MSG ON)
 
 set(BOOST_ROOT $ENV{BOOST_ROOT})
@@ -18,8 +17,6 @@ enable_testing()
 
 set(Boost_USE_STATIC_LIBS		OFF)
 set(Boost_USE_MULTITHREADED		ON)
-set(Boost_NO_SYSTEM_PATHS		ON)
-set(Boost_NO_BOOST_CMAKE		ON)
 
 find_package(Boost 1.60.0 EXACT COMPONENTS unit_test_framework)
 
@@ -35,7 +32,8 @@ if(Boost_FOUND)
 	target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
 								
 	target_link_libraries(test_executable
-										${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+										#${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+										Boost::unit_test_framework
 										${LibName}
 										)
 										

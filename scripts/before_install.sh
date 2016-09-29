@@ -111,9 +111,10 @@ then
   #./b2 --layout=versioned -d0 link=static threading=multi runtime-link=static toolset=gcc install
   ./b2 --layout=tagged -d0 link=shared threading=multi install
   
-  #pushd ../lib
-  #ls
-  #popd
+  pushd ../installed/boost_${BOOST_UNDERSCORE_VERSION}/lib
+  echo "lib directory contains >>"
+  ls
+  popd
   
   #echo "include dir contains >>"
   #pushd ../include/boost
