@@ -20,10 +20,6 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
 
 find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
 
-set(BOOST_ROOT $ENV{BOOST_ROOT})
-set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
-set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
-
 #if(Boost_FOUND)
     include_directories("${LIB_HEADERS}")
 	
