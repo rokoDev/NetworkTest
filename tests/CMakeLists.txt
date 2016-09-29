@@ -15,7 +15,7 @@ message(STATUS "BOOST_ROOT >> ${BOOST_ROOT}")
 
 enable_testing()
 
-set(Boost_USE_STATIC_LIBS		OFF)
+set(Boost_USE_STATIC_LIBS		ON)
 set(Boost_USE_MULTITHREADED		ON)
 
 SET(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "$ENV{BOOST_ROOT}/include")
