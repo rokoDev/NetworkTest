@@ -21,17 +21,18 @@ set(Boost_USE_MULTITHREADED		ON)
 set(Boost_NO_SYSTEM_PATHS		ON)
 set(Boost_NO_BOOST_CMAKE		ON)
 
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+find_package(Boost 1.60.0 EXACT COMPONENTS unit_test_framework)
 
 if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIR})
-	link_directories(${Boost_LIBRARY_DIRS})
+    include_directories("${LIB_HEADERS}")
 	
 
 	add_executable(test_executable
 								main.cpp
 								SomeClass_test.cpp
 								)
+								
+	target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
 								
 	target_link_libraries(test_executable
 										${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
