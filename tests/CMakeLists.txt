@@ -3,7 +3,7 @@
 #    IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework.so) #libboost_unit_test_framework-gcc48-mt-s-1_60.a)
 
 
-cmake_minimum_required(VERSION 3.6.1)
+cmake_minimum_required(VERSION ${cmake_version})
 
 project(${LibName}_test)
 
@@ -11,33 +11,17 @@ set(Boost_DEBUG ON)
 
 set(Boost_DETAILED_FAILURE_MSG ON)
 
-#set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} $ENV{BOOST_ROOT})
-#set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} $ENV{BOOST_ROOT}/lib)
 set(BOOST_ROOT $ENV{BOOST_ROOT})
 message(STATUS "BOOST_ROOT >> ${BOOST_ROOT}")
 
 enable_testing()
 
-#include_directories("${LIB_HEADERS}")
-
-#set(Boost_INCLUDE_DIR $ENV{BOOST_ROOT}/include)
-#set(Boost_LIBRARY_DIRS $ENV{BOOST_ROOT}/lib)
-
-#set(Boost_INCLUDE_DIR /home/travis/build/rokoDev/NetworkTest/deps/boost/include)
-
-message(STATUS "Boost_INCLUDE_DIR0 >> ${Boost_INCLUDE_DIR}")
-message(STATUS "Boost_LIBRARY_DIRS0 >> ${Boost_LIBRARY_DIRS}")
-
-set( Boost_USE_STATIC_LIBS        OFF )
-	set( Boost_USE_MULTITHREADED      ON )
-	set( Boost_USE_STATIC_RUNTIME     ON )
-	set( BOOST_ALL_DYN_LINK           ON ) # force dynamic linking for all libraries
-set(Boost_NO_SYSTEM_PATHS ON)
+set(Boost_USE_STATIC_LIBS		OFF)
+set(Boost_USE_MULTITHREADED		ON)
+set(Boost_NO_SYSTEM_PATHS		ON)
+set(Boost_NO_BOOST_CMAKE		ON)
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-
-message(STATUS "Boost_INCLUDE_DIR >> ${Boost_INCLUDE_DIR}")
-message(STATUS "Boost_LIBRARY_DIRS >> ${Boost_LIBRARY_DIRS}")
 
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIR})
