@@ -22,30 +22,10 @@ matrix:
          apt:
            sources: 
              - ['ubuntu-toolchain-r-test']
-             #- boost-latest
-             #- george-edison55-precise-backports
-           packages: 
-             #- ['g++-4.7']
+           packages:
              - g++-4.8
-             #- libboost-test1.60-dev
-             #- libboost-test1.60.0
-             #- cmake
-             #- cmake-data
        env:
-         - BOOST_VERSION="1.60.0" # Boost 1.61
-         #- BOOST_URL="http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.gz"
-#    - os: osx
-#      osx_image: beta-xcode6.1
-#      compiler: clang
-#    - os: osx
-#      osx_image: xcode8
-#      compiler: clang
-#    - os: osx
-#      osx_image: beta-xcode6.1
-#      compiler: gcc
-#    - os: osx
-#      osx_image: xcode8
-#      compiler: gcc
+         - BOOST_VERSION="1.60.0"
   
 #before_install: ./scripts/before_install.sh
 

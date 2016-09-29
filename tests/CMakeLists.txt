@@ -1,8 +1,3 @@
-#ADD_LIBRARY(boost_unit_test_framework SHARED IMPORTED)
-#SET_TARGET_PROPERTIES(boost_unit_test_framework PROPERTIES
-#    IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework.so) #libboost_unit_test_framework-gcc48-mt-s-1_60.a)
-
-
 cmake_minimum_required(VERSION ${cmake_version})
 
 project(${LibName}_test)
@@ -21,7 +16,7 @@ set(Boost_USE_MULTITHREADED		ON)
 SET(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "$ENV{BOOST_ROOT}/include")
 SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
 
-find_package(Boost 1.60.0 EXACT COMPONENTS unit_test_framework)
+find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
 
 if(Boost_FOUND)
     include_directories("${LIB_HEADERS}")
