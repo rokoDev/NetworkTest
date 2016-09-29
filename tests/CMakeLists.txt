@@ -18,7 +18,10 @@ enable_testing()
 set(Boost_USE_STATIC_LIBS		OFF)
 set(Boost_USE_MULTITHREADED		ON)
 
-find_package(Boost 1.60.0 REQUIRED COMPONENTS unit_test_framework)
+SET(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "$ENV{BOOST_ROOT}/include")
+SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
+
+find_package(Boost 1.60.0 EXACT COMPONENTS unit_test_framework)
 
 if(Boost_FOUND)
     include_directories("${LIB_HEADERS}")
