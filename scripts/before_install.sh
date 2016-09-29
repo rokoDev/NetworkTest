@@ -10,7 +10,7 @@ then
   #install cmake--------------------------------------------------------------------
   mkdir ~/cmake_tmp
   cd ~/cmake_tmp
-  cmake_version="3.6.2"
+  cmake_version="3.6.1"
   CMAKE_URL="https://cmake.org/files/v3.6/cmake-$cmake_version-Linux-x86_64.tar.gz"
   wget $CMAKE_URL
   tar xf cmake-$cmake_version-Linux-x86_64.tar.gz

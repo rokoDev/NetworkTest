@@ -1,4 +1,4 @@
-set(cmake_version 3.6.2)
+set(cmake_version 3.6.1)
 
 cmake_minimum_required(VERSION ${cmake_version})
 
