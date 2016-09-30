@@ -32,6 +32,7 @@ then
 
   BOOST_URL="http://sourceforge.net/projects/boost/files/boost/$BOOST_VERSION/boost_$BOOST_UNDERSCORE_VERSION.tar.bz2"
   echo "BOOST_URL: $BOOST_URL"
+  gcc -v
 
   wget $BOOST_URL
 

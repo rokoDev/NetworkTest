@@ -10,7 +10,7 @@ set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
 set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
 message(STATUS "BOOST_ROOT >> ${BOOST_ROOT}")
 
-set(Boost_COMPILER "-gcc48")
+#set(Boost_COMPILER "-gcc48")
 
 enable_testing()
 
