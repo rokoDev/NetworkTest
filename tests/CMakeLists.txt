@@ -32,7 +32,7 @@ message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 
 #find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
 
-    include_directories("${LIB_HEADERS}")
+    include_directories(${LIB_HEADERS} $ENV{BOOST_ROOT}/include)
     
 	#link_directories($ENV{BOOST_ROOT}/lib)
 	
