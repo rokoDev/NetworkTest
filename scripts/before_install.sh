@@ -47,7 +47,7 @@ then
 
 
   ./bootstrap.sh --with-toolset=gcc --prefix=../installed/boost_${BOOST_UNDERSCORE_VERSION} --with-libraries=test
-  ./b2 --layout=tagged -d0 link=shared threading=multi --build-dir=Build -d+2 variant=release cxxflags=-fPIC cxxflags=-std=c++11 install
+  ./b2 --layout=tagged -d0 link=shared threading=multi --build-dir=Build variant=release cxxflags=-fPIC cxxflags=-std=c++11 install
   
   pushd ../installed/boost_${BOOST_UNDERSCORE_VERSION}/lib
   echo "lib directory contains >>"
