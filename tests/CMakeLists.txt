@@ -47,7 +47,7 @@ message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 								SomeClass_test.cpp
 								)
 								
-	#target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
+	target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
 								
 	target_link_libraries(test_executable
 						boost_unit_test_framework
