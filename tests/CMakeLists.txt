@@ -33,7 +33,7 @@ message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 #find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
 
 #if(Boost_FOUND)
-    include_directories("${LIB_HEADERS}" $ENV{BOOST_ROOT}/include)
+    include_directories("${LIB_HEADERS}")
     
 	link_directories($ENV{BOOST_ROOT}/lib)
 
@@ -41,6 +41,8 @@ message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 								main.cpp
 								SomeClass_test.cpp
 								)
+								
+	target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
 								
 	target_link_libraries(test_executable
 						$ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-mt.so
