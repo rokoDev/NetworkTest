@@ -38,7 +38,7 @@ message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 	
 	add_library(boost_unit_test_framework SHARED IMPORTED GLOBAL)
 	
-	set_property(TARGET boost_unit_test_framework PROPERTY IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-mt.so)
+	set_property(TARGET boost_unit_test_framework PROPERTY IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-mt.so.1.60.0)
              
     #target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
 
