@@ -25,8 +25,12 @@ message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 set_target_properties(Boost_unit_test_framework PROPERTIES
                           IMPORTED_LOCATION libboost_unit_test_framework-mt.so
                           LINKER_LANGUAGE CXX)
+                          
+set_target_properties(boost_test Boost_unit_test_framework PROPERTIES
+                        LABELS Boost FOLDER "Third Party/Boost" EXCLUDE_FROM_ALL TRUE)
+add_dependencies(Boost_unit_test_framework boost_test)
 
-find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
+#find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
 
 #if(Boost_FOUND)
     include_directories("${LIB_HEADERS}")
