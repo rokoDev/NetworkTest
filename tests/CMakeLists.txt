@@ -22,19 +22,19 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
 
 message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 
-set_target_properties(Boost_unit_test_framework PROPERTIES
-                          IMPORTED_LOCATION libboost_unit_test_framework-mt.so
-                          LINKER_LANGUAGE CXX)
+#set_target_properties(Boost_unit_test_framework PROPERTIES
+#                          IMPORTED_LOCATION libboost_unit_test_framework-mt.so
+#                          LINKER_LANGUAGE CXX)
                           
-set_target_properties(boost_test Boost_unit_test_framework PROPERTIES
-                        LABELS Boost FOLDER "Third Party/Boost" EXCLUDE_FROM_ALL TRUE)
-add_dependencies(Boost_unit_test_framework boost_test)
+#set_target_properties(boost_test Boost_unit_test_framework PROPERTIES
+#                        LABELS Boost FOLDER "Third Party/Boost" EXCLUDE_FROM_ALL TRUE)
+#add_dependencies(Boost_unit_test_framework boost_test)
 
 #find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
 
 #if(Boost_FOUND)
-    include_directories("${LIB_HEADERS}")
-	
+    include_directories("${LIB_HEADERS}" "$ENV{BOOST_ROOT}/include")
+	link_directories("$ENV{BOOST_ROOT}/lib")
 
 	add_executable(test_executable
 								main.cpp
@@ -45,7 +45,8 @@ add_dependencies(Boost_unit_test_framework boost_test)
 								
 	target_link_libraries(test_executable
 										#${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
-										Boost::unit_test_framework
+										#Boost::unit_test_framework
+										$ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-mt.so
 										${LibName}
 										)
 										
