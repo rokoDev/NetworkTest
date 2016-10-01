@@ -32,17 +32,15 @@ message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 
 #find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
 
-#if(Boost_FOUND)
     include_directories("${LIB_HEADERS}")
     
 	#link_directories($ENV{BOOST_ROOT}/lib)
 	
 	add_library(boost_unit_test_framework SHARED IMPORTED GLOBAL)
 	
-	set_property(test_executable boost_unit_test_framework PROPERTY
-             IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-mt.so)
+	set_property(TARGET boost_unit_test_framework PROPERTY IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-mt.so)
              
-    target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
+    #target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
 
 	add_executable(test_executable
 								main.cpp
@@ -59,6 +57,3 @@ message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 	#target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
 										
 	add_test(NAME test1 COMMAND test_executable)
-#else()
-#	message(STATUS "No Boost library were found!")
-#endif()
