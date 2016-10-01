@@ -19,7 +19,7 @@ set(Boost_USE_STATIC_RUNTIME    OFF)
 set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "$ENV{BOOST_ROOT}/include")
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
 
-find_package(Boost 1.60.0 COMPONENTS unit_test_framework)
+find_package(Boost 1.60 COMPONENTS unit_test_framework)
 
 if(Boost_FOUND)
   message(STATUS "BOOST FOUND :)")
