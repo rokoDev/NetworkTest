@@ -20,6 +20,8 @@ set(Boost_USE_MULTITHREADED		ON)
 set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "$ENV{BOOST_ROOT}/include")
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
 
+message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
+
 find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
 
 #if(Boost_FOUND)
