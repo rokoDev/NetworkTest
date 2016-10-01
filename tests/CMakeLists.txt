@@ -45,6 +45,7 @@ message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 	add_executable(test_executable
 								main.cpp
 								SomeClass_test.cpp
+								$ENV{BOOST_ROOT}/include
 								)
 								
 	target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
