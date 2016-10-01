@@ -62,5 +62,7 @@ then
   popd
   popd
   popd
+  
+  cmake -DBOOST_DIR=${BOOST_ROOT}/include/boost -P Utilities/Scripts/BoostScanDeps.cmake
 
 fi
