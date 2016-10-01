@@ -20,11 +20,9 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
 
 message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
 
-#find_package(Boost 1.60.0 EXACT REQUIRED COMPONENTS unit_test_framework)
-
     include_directories(${LIB_HEADERS})
 	
-	add_library(boost_unit_test_framework SHARED IMPORTED GLOBAL)
+	add_library(boost_unit_test_framework STATIC IMPORTED GLOBAL)
 	
 	set_property(TARGET boost_unit_test_framework PROPERTY IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-mt.so)
 
