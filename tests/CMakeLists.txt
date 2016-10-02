@@ -19,7 +19,7 @@ set(Boost_USE_STATIC_RUNTIME    OFF)
 set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "$ENV{BOOST_ROOT}/include")
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
 
-set(Boost_VERSION 106000)
+#set(Boost_VERSION 106000)
 
 find_package(Boost 1.60 COMPONENTS unit_test_framework)
 
