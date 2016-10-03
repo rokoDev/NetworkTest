@@ -22,10 +22,10 @@ matrix:
          apt:
            sources: 
              - ['ubuntu-toolchain-r-test']
-           packages:
-             - g++-4.9
+           packages: ['g++-4.9']
        env:
          - BOOST_VERSION="1.60.0"
+         - COMPILER=g++-4.9
   
 #before_install: ./scripts/before_install.sh
 
