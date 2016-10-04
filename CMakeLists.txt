@@ -10,7 +10,7 @@ project(${LibName}
 		VERSION 1.0.0.0
 		LANGUAGES CXX)
 		
-message(STATUS "cur c++ compiler is:${CMAKE_CXX_COMPILER}");
+message(STATUS "cur c++ compiler is:${CMAKE_CXX_COMPILER}")
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

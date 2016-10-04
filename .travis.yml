@@ -51,8 +51,7 @@ install:
   #- export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost/installed/boost_1_60_0"
 
 script: 
-  - export CXX=${COMPILER}
-  - export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost/installed/boost_1_60_0"
+  - export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost/installed/boost_1_60_0" -D CMAKE_CXX_COMPILER=${COMPILER}
   - ./scripts/build_test_install.sh
 
 notifications:
