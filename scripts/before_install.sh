@@ -43,21 +43,38 @@ then
 
   pushd boost_${BOOST_UNDERSCORE_VERSION}
   
-  mkdir -p ../installed/boost_${BOOST_UNDERSCORE_VERSION}
+  PREFIX="../installed/boost_${BOOST_UNDERSCORE_VERSION}/BoostBuildInstallDir"
+  mkdir -p $PREFIX
+  pushd $PREFIX
+  PREFIX=$(pwd)
+  echo "PREFIX=$PREFIX"
+  popd
 
 
-  ./bootstrap.sh --with-toolset=gcc --prefix=../installed/boost_${BOOST_UNDERSCORE_VERSION} --with-libraries=test
-  ./b2 --layout=tagged -d0 link=shared threading=multi --build-dir=Build variant=release cxxflags=-fPIC cxxflags=-std=c++11 install
+  #./bootstrap.sh --with-toolset=gcc --prefix=../installed/boost_${BOOST_UNDERSCORE_VERSION} --with-libraries=test
+  #./b2 --prefix=../installed/boost_${BOOST_UNDERSCORE_VERSION} --build-type=complete --with-test --layout=tagged -d0 toolset=gcc link=shared runtime-link=static threading=multi --build-dir=Build variant=release cxxflags=-fPIC cxxflags=-std=c++11 install
+  pushd tools/build
+  ./bootstrap.sh
   
-  pushd ../installed/boost_${BOOST_UNDERSCORE_VERSION}/lib
-  echo "lib directory contains >>"
-  ls
+  ./b2 --prefix=${PREFIX}
+
+  echo "export BOOST_BUILD_INSTALLED_BIN=${PREFIX}/bin" >> $HOME/.bash_profile
+  echo "export PATH=\$BOOST_BUILD_INSTALLED_BIN:\$PATH" >> $HOME/.bash_profile
+  . ~/.bash_profile
+
   popd
-  
-  echo "include dir contains >>"
-  pushd ../installed/boost_${BOOST_UNDERSCORE_VERSION}/include/boost
-  ls
+
+  BUILD_DIR="../installed/boost_${BOOST_UNDERSCORE_VERSION}/build_boost"
+  mkdir -p $BUILD_DIR
+  pushd $BUILD_DIR
+  BUILD_DIR=$(pwd)
+  echo "BUILD_DIR=$BUILD_DIR"
   popd
+  #pushd ../installed/boost_${BOOST_UNDERSCORE_VERSION}/boost_root
+
+  echo "using gcc : : ${COMPILER} : cxxflags=-std=gnu++11 ;" >> ./tools/build/src/user-config.jam
+
+  b2 --prefix=../installed/boost_${BOOST_UNDERSCORE_VERSION} --build-dir=$BUILD_DIR --debug-configuration --with-test --layout=tagged toolset=gcc link=shared threading=multi variant=release install >boostbuild.log 2>&1
 
   popd
   popd
