@@ -9,11 +9,14 @@ set(LibName "SimpleNet")
 project(${LibName} 
 		VERSION 1.0.0.0
 		LANGUAGES CXX)
+		
+message(STATUS "cur c++ compiler is:${CMAKE_CXX_COMPILER}");
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
 set(LIB_HEADERS ${CMAKE_SOURCE_DIR}/include/${LibName})
 
