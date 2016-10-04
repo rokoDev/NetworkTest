@@ -74,7 +74,7 @@ then
 
   echo "using gcc : : ${COMPILER} : cxxflags=-std=gnu++11 ;" >> ./tools/build/src/user-config.jam
 
-  b2 --prefix=../installed/boost_${BOOST_UNDERSCORE_VERSION} --build-dir=$BUILD_DIR --debug-configuration --with-test --layout=tagged toolset=gcc link=shared threading=multi variant=release install >boostbuild.log 2>&1
+  b2 --prefix=../installed/boost_${BOOST_UNDERSCORE_VERSION} --build-dir=$BUILD_DIR --debug-configuration --with-test --layout=tagged toolset=gcc link=shared threading=multi variant=release install #>boostbuild.log 2>&1
 
   popd
   popd
