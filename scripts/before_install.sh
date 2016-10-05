@@ -74,7 +74,7 @@ then
 
   echo "using gcc : : ${COMPILER} : cxxflags=-std=gnu++11 ;" >> ./tools/build/src/user-config.jam
   
-  pushd $ ../installed/boost_${BOOST_UNDERSCORE_VERSION}
+  pushd ../installed/boost_${BOOST_UNDERSCORE_VERSION}
   BOOST_INSTALL_PATH=$(pwd)
   echo "BOOST_INSTALL_PATH=$BOOST_INSTALL_PATH"
   popd
