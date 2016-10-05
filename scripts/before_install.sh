@@ -73,8 +73,13 @@ then
   #pushd ../installed/boost_${BOOST_UNDERSCORE_VERSION}/boost_root
 
   echo "using gcc : : ${COMPILER} : cxxflags=-std=gnu++11 ;" >> ./tools/build/src/user-config.jam
+  
+  pushd $ ../installed/boost_${BOOST_UNDERSCORE_VERSION}
+  BOOST_INSTALL_PATH=$(pwd)
+  echo "BOOST_INSTALL_PATH=$BOOST_INSTALL_PATH"
+  popd
 
-  b2 --prefix=../installed/boost_${BOOST_UNDERSCORE_VERSION} --build-dir=$BUILD_DIR --debug-configuration --with-test --layout=tagged toolset=gcc link=shared threading=multi variant=release install #>boostbuild.log 2>&1
+  b2 --prefix=$BOOST_INSTALL_PATH --build-dir=$BUILD_DIR --debug-configuration --with-test --layout=tagged toolset=gcc link=shared threading=multi variant=release install #>boostbuild.log 2>&1
 
   popd
   popd
