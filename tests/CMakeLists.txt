@@ -5,9 +5,9 @@ project(${LibName}_test)
 set(Boost_DEBUG ON)
 set(Boost_DETAILED_FAILURE_MSG ON)
 
-set(BOOST_ROOT $ENV{BOOST_ROOT})
-set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
-set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
+#set(BOOST_ROOT $ENV{BOOST_ROOT})
+#set(BOOST_LIBRARYDIR $ENV{BOOST_ROOT}/lib)
+#set(BOOST_INCLUDEDIR $ENV{BOOST_ROOT}/include)
 message(STATUS "BOOST_ROOT >> ${BOOST_ROOT}")
 
 enable_testing()
@@ -25,9 +25,9 @@ set(Boost_ADDITIONAL_VERSIONS 1.60.0 1.60)
 
 set(Boost_NO_SYSTEM_PATHS ON)
 #set(Boost_USE_STATIC_RUNTIME ON)
-set(Boost_COMPILER g++-5)
+#set(Boost_COMPILER g++-5)
 
-find_package(Boost 1.60 COMPONENTS unit_test_framework)
+find_package(Boost 1.60.0 COMPONENTS unit_test_framework prg_exec_monitor test_exec_monitor)
 
 if(Boost_FOUND)
   message(STATUS "BOOST FOUND :)")
