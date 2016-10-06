@@ -21,6 +21,8 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
 
 #set(Boost_VERSION 106000)
 
+set(Boost_NO_SYSTEM_PATHS ON)
+
 find_package(Boost 1.60 COMPONENTS unit_test_framework)
 
 if(Boost_FOUND)
