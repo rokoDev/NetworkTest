@@ -56,7 +56,7 @@ then
   pushd tools/build
   ./bootstrap.sh
   
-  ./b2 --prefix=${PREFIX}
+  ./b2 --prefix=${PREFIX} --ignore-site-config
 
   echo "export BOOST_BUILD_INSTALLED_BIN=${PREFIX}/bin" >> $HOME/.bash_profile
   echo "export PATH=\$BOOST_BUILD_INSTALLED_BIN:\$PATH" >> $HOME/.bash_profile
@@ -79,7 +79,7 @@ then
   echo "BOOST_INSTALL_PATH=$BOOST_INSTALL_PATH"
   popd
 
-  b2 --prefix=$BOOST_INSTALL_PATH --build-dir=$BUILD_DIR --with-test --layout=tagged toolset=gcc link=shared threading=multi variant=debug,release install #>boostbuild.log 2>&1
+  b2 --prefix=$BOOST_INSTALL_PATH --build-dir=$BUILD_DIR --with-test --layout=tagged toolset=gcc link=shared threading=multi variant=debug,release cxxflags=-fPIC cxxflags=-std=c++11 --ignore-site-config install #>boostbuild.log 2>&1
 
   popd
   popd
