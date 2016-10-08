@@ -81,7 +81,7 @@ then
 
   b2 --prefix=$BOOST_INSTALL_PATH --build-dir=$BUILD_DIR --with-test --layout=tagged toolset=gcc link=shared threading=multi variant=debug,release cxxflags=-fPIC cxxflags=-std=c++11 --ignore-site-config install #>boostbuild.log 2>&1
   
-  pushd ${$BOOST_INSTALL_PATH}/lib
+  pushd ${BOOST_INSTALL_PATH}/lib
   ls
   popd
 
