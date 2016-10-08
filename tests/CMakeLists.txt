@@ -27,7 +27,7 @@ set(Boost_NO_SYSTEM_PATHS ON)
 #set(Boost_USE_STATIC_RUNTIME ON)
 #set(Boost_COMPILER g++-5)
 
-find_package(Boost COMPONENTS unit_test_framework) #prg_exec_monitor test_exec_monitor)
+find_package(Boost COMPONENTS unit_test_framework-mt) #prg_exec_monitor test_exec_monitor)
 
 if(Boost_FOUND)
   message(STATUS "BOOST FOUND :)")
