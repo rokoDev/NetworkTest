@@ -2,6 +2,92 @@ cmake_minimum_required(VERSION ${cmake_version})
 
 project(${LibName}_test)
 
+set(BoostVersion 1.60.0)
+
+string(REGEX REPLACE "beta\\.([0-9])$" "beta\\1" BoostFolderName ${BoostVersion})
+string(REPLACE "." "_" BoostFolderName ${BoostFolderName})
+set(BoostFolderName boost_${BoostFolderName})
+
+set(BoostDirPath "${CMAKE_SOURCE_DIR}/deps")
+file(MAKE_DIRECTORY ${BoostDirPath})
+
+set(BoostBuildDirPath "${CMAKE_SOURCE_DIR}/deps/BoostBuild")
+file(MAKE_DIRECTORY ${BoostBuildDirPath})
+
+set(BOOST_ROOT "${CMAKE_SOURCE_DIR}/deps/installed")
+file(MAKE_DIRECTORY ${BOOST_ROOT})
+
+# Download boost if required
+set(ZipFilePath "${BoostDirPath}/${BoostFolderName}.tar.bz2")
+if(NOT EXISTS ${ZipFilePath})
+  message(STATUS "Downloading boost ${BoostVersion} to ${BoostDirPath}")
+endif()
+
+message(STATUS "ZipFilePath >> ${ZipFilePath}")
+file(DOWNLOAD http://sourceforge.net/projects/boost/files/boost/${BoostVersion}/${BoostFolderName}.tar.bz2
+     ${ZipFilePath}
+     STATUS Status
+     SHOW_PROGRESS
+     )
+     
+execute_process(COMMAND ${CMAKE_COMMAND} -E tar xf ${ZipFilePath}
+                  WORKING_DIRECTORY ${BoostDirPath}
+                  RESULT_VARIABLE Result
+                  )
+                  
+file(REMOVE ${ZipFilePath})
+
+#file(WRITE ${BoostDirPath}/${BoostFolderName}/tools/build/src/user-config.jam "using darwin : 6.2.0 : ${CMAKE_CXX_COMPILER} : ;")
+
+set(bootstrap "./bootstrap.sh") #"${BoostDirPath}/${BoostFolderName}/tools/build/bootstrap.sh")
+
+execute_process(COMMAND ${bootstrap} WORKING_DIRECTORY ${BoostDirPath}/${BoostFolderName}/tools/build
+                  RESULT_VARIABLE Result OUTPUT_VARIABLE Output ERROR_VARIABLE Error)
+if(NOT Result EQUAL "0")
+  message(FATAL_ERROR "Failed running ${b2Bootstrap}:\n${Output}\n${Error}\n")
+endif()
+
+set(buildB2 ./b2
+					install
+					--prefix=${CMAKE_SOURCE_DIR}/deps/BoostBuild
+					)
+
+execute_process(COMMAND ${buildB2} WORKING_DIRECTORY ${BoostDirPath}/${BoostFolderName}/tools/build
+                  RESULT_VARIABLE Result)
+if(NOT Result EQUAL "0")
+  message(FATAL_ERROR "Failed running ${buildB2}")
+endif()
+
+message(STATUS "CMAKE_CXX_COMPILER_ID=${CMAKE_CXX_COMPILER_ID}")
+
+file(WRITE ${BoostDirPath}/${BoostFolderName}/tools/build/src/user-config.jam "using gcc : 5 : ${CMAKE_CXX_COMPILER} : ;")
+
+file(MAKE_DIRECTORY ${BoostDirPath}/build)
+
+set(b2Args ${CMAKE_SOURCE_DIR}/deps/BoostBuild/bin/b2
+		   --prefix=${BOOST_ROOT}
+		   --build-dir=${BoostDirPath}/build
+		   --with-test
+		   --layout=tagged
+		   -d0
+		   toolset=gcc-5
+		   #address-model=64
+           link=shared
+           threading=multi
+           variant=release
+           runtime-link=shared
+           install
+           --ignore-site-config
+           )
+           
+execute_process(COMMAND ${b2Args} WORKING_DIRECTORY ${BoostDirPath}/${BoostFolderName}
+                  RESULT_VARIABLE Result)
+if(NOT Result EQUAL "0")
+  message(FATAL_ERROR "Failed running ${b2Args}")
+endif()
+     
+#set(BOOST_ROOT $ENV{BOOST_ROOT})
+
 set(Boost_DEBUG ON)
 set(Boost_DETAILED_FAILURE_MSG ON)
 
@@ -16,18 +102,18 @@ set(Boost_USE_STATIC_LIBS		OFF)
 set(Boost_USE_MULTITHREADED		ON)
 set(Boost_USE_STATIC_RUNTIME    OFF)
 
-set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "$ENV{BOOST_ROOT}/include")
-set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
+#set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "$ENV{BOOST_ROOT}/include")
+#set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
 
 #set(Boost_VERSION 106000)
 
-set(Boost_ADDITIONAL_VERSIONS 1.60.0 1.60)
+#set(Boost_ADDITIONAL_VERSIONS 1.60.0 1.60)
 
 set(Boost_NO_SYSTEM_PATHS ON)
 #set(Boost_USE_STATIC_RUNTIME ON)
 #set(Boost_COMPILER g++-5)
 
-find_package(Boost COMPONENTS unit_test_framework-mt) #prg_exec_monitor test_exec_monitor)
+find_package(Boost 1.60.0 COMPONENTS unit_test_framework) #prg_exec_monitor test_exec_monitor)
 
 if(Boost_FOUND)
   message(STATUS "BOOST FOUND :)")
@@ -39,10 +125,10 @@ if(Boost_FOUND)
 								SomeClass_test.cpp
 								)
 								
-  target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
+  #target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
   
   target_link_libraries(test_executable
-						boost_unit_test_framework
+						${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 						${LibName}
 	)
 

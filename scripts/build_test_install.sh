@@ -1,11 +1,14 @@
 #! /bin/bash
 
-rm -rf build installed
+rm -rf build installed deps
 
 cmake -E make_directory build
 cd build
 
-cmake -DCMAKE_BUILD_TYPE=Release -DBOOST_ROOT=${BOOST_ROOT} -DCMAKE_C_COMPILER=gcc-5 -DCMAKE_CXX_COMPILER=${COMPILER} ..
+#export CC=/usr/local/gcc-6.2.0/bin/gcc-6.2.0
+#export CXX=/usr/local/gcc-6.2.0/bin/g++-6.2.0
+#export LD=/usr/local/gcc-6.2.0/bin/gcc-6.2.0
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=gcc-5 -DCMAKE_CXX_COMPILER=${COMPILER} ..
 cmake --build .
 
 cd tests
