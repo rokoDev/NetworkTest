@@ -102,16 +102,7 @@ set(Boost_USE_STATIC_LIBS		OFF)
 set(Boost_USE_MULTITHREADED		ON)
 set(Boost_USE_STATIC_RUNTIME    OFF)
 
-#set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "$ENV{BOOST_ROOT}/include")
-#set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "$ENV{BOOST_ROOT}/lib")
-
-#set(Boost_VERSION 106000)
-
-#set(Boost_ADDITIONAL_VERSIONS 1.60.0 1.60)
-
 set(Boost_NO_SYSTEM_PATHS ON)
-#set(Boost_USE_STATIC_RUNTIME ON)
-#set(Boost_COMPILER g++-5)
 
 find_package(Boost 1.60.0 COMPONENTS unit_test_framework) #prg_exec_monitor test_exec_monitor)
 
@@ -135,25 +126,3 @@ if(Boost_FOUND)
   add_test(NAME test1 COMMAND test_executable)
   
 endif()
-
-#message(STATUS "c++ compiler id: ${CMAKE_CXX_COMPILER_ID}")
-#
-#    include_directories(${LIB_HEADERS})
-#	
-#	add_library(boost_unit_test_framework SHARED IMPORTED GLOBAL)
-#	
-#	set_property(TARGET boost_unit_test_framework PROPERTY IMPORTED_LOCATION $ENV{BOOST_ROOT}/lib/libboost_unit_test_framework-mt.so)
-#
-#	add_executable(test_executable
-#								main.cpp
-#								SomeClass_test.cpp
-#								)
-#								
-#	target_include_directories(test_executable PRIVATE $ENV{BOOST_ROOT}/include)
-#								
-#	target_link_libraries(test_executable
-#						${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
-#						${LibName}
-#	)
-#										
-#	add_test(NAME test1 COMMAND test_executable)
