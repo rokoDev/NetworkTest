@@ -17,7 +17,7 @@ matrix:
   include:
     - os: linux
     - compiler: gcc
-      addons:
+    - addons:
         apt:
           sources:
             - ubuntu-toolchain-r-test
