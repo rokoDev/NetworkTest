@@ -1,11 +1,11 @@
 language: cpp
 
-env:
-  global:
-    - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
-    - BOOST_VERSION=default
-    - BOOST_ROOT="${DEPS_DIR}/boost/installed/boost_1_60_0"
-    - LD_LIBRARY_PATH="${BOOST_ROOT}/lib":${LD_LIBRARY_PATH}
+#env:
+#  global:
+#    - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+#    - BOOST_VERSION=default
+#    - BOOST_ROOT="${DEPS_DIR}/boost/installed/boost_1_60_0"
+#    - LD_LIBRARY_PATH="${BOOST_ROOT}/lib":${LD_LIBRARY_PATH}
     
 sudo: required
     
@@ -26,24 +26,11 @@ matrix:
       env: 
         - COMPILER=g++-5
         - BOOST_VERSION="1.60.0"
-  
-#matrix:
-#  include:
-#     - os: linux
-#       dist: trusty
-#       compiler: gcc
-#       sudo: required
-#       addons:
-#         apt:
-#           sources: 
-#           - ubuntu-toolchain-r-test
-#             #- ['ubuntu-toolchain-r-test']
-#           packages: #['g++-4.9']
-#           - gcc-4.9
-#           - g++-4.9
-#       env:
-#         - BOOST_VERSION="1.60.0"
-#         - COMPILER=g++-4.9
+    - os: osx
+      compiler: clang
+      env:
+        - COMPILER=clang++
+        - BOOST_VERSION="1.60.0"
   
 #before_install: ./scripts/before_install.sh
 
