@@ -8,13 +8,13 @@ string(REGEX REPLACE "beta\\.([0-9])$" "beta\\1" BoostFolderName ${BoostVersion}
 string(REPLACE "." "_" BoostFolderName ${BoostFolderName})
 set(BoostFolderName boost_${BoostFolderName})
 
-set(BoostDirPath "${CMAKE_SOURCE_DIR}/deps")
+set(BoostDirPath "${CMAKE_SOURCE_DIR}/deps/boost")
 file(MAKE_DIRECTORY ${BoostDirPath})
 
-set(BoostBuildDirPath "${CMAKE_SOURCE_DIR}/deps/BoostBuild")
+set(BoostBuildDirPath "${CMAKE_SOURCE_DIR}/deps/boost/BoostBuild")
 file(MAKE_DIRECTORY ${BoostBuildDirPath})
 
-set(BOOST_ROOT "${CMAKE_SOURCE_DIR}/deps/installed")
+set(BOOST_ROOT "${CMAKE_SOURCE_DIR}/deps/boost/installed")
 file(MAKE_DIRECTORY ${BOOST_ROOT})
 
 # Download boost if required
@@ -49,7 +49,7 @@ endif()
 
 set(buildB2 ./b2
 					install
-					--prefix=${CMAKE_SOURCE_DIR}/deps/BoostBuild
+					--prefix=${CMAKE_SOURCE_DIR}/deps/boost/BoostBuild
 					)
 
 execute_process(COMMAND ${buildB2} WORKING_DIRECTORY ${BoostDirPath}/${BoostFolderName}/tools/build
@@ -64,13 +64,13 @@ file(WRITE ${BoostDirPath}/${BoostFolderName}/tools/build/src/user-config.jam "u
 
 file(MAKE_DIRECTORY ${BoostDirPath}/build)
 
-set(b2Args ${CMAKE_SOURCE_DIR}/deps/BoostBuild/bin/b2
+set(b2Args ${CMAKE_SOURCE_DIR}/deps/boost/BoostBuild/bin/b2
 		   --prefix=${BOOST_ROOT}
 		   --build-dir=${BoostDirPath}/build
 		   --with-test
 		   --layout=tagged
 		   -d0
-		   toolset=gcc-5
+		   toolset=gcc-5 #clang
 		   #address-model=64
            link=shared
            threading=multi
