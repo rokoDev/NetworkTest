@@ -60,17 +60,13 @@ endif()
 
 message(STATUS "CMAKE_CXX_COMPILER_ID=${CMAKE_CXX_COMPILER_ID}")
 
-file(WRITE ${BoostDirPath}/${BoostFolderName}/tools/build/src/user-config.jam "using gcc : 5 : ${CMAKE_CXX_COMPILER} : ;")
-
-file(MAKE_DIRECTORY ${BoostDirPath}/build)
-
 set(b2Args ${CMAKE_SOURCE_DIR}/deps/boost/BoostBuild/bin/b2
 		   --prefix=${BOOST_ROOT}
 		   --build-dir=${BoostDirPath}/build
 		   --with-test
 		   --layout=tagged
 		   -d0
-		   toolset=gcc-5 #clang
+		   #toolset=gcc-5 #clang
 		   #address-model=64
            link=shared
            threading=multi
@@ -79,6 +75,18 @@ set(b2Args ${CMAKE_SOURCE_DIR}/deps/boost/BoostBuild/bin/b2
            install
            --ignore-site-config
            )
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "^(Apple)?Clang$")
+  message(STATUS "this is Clang compiler")
+  file(WRITE ${BoostDirPath}/${BoostFolderName}/tools/build/src/user-config.jam "using clang : : ${CMAKE_CXX_COMPILER} : ;")
+  list(APPEND b2Args toolset=clang)
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  message(STATUS "this is GNU compiler")
+  file(WRITE ${BoostDirPath}/${BoostFolderName}/tools/build/src/user-config.jam "using gcc : : ${CMAKE_CXX_COMPILER} : ;")
+  list(APPEND b2Args toolset=gcc)
+endif()
+
+file(MAKE_DIRECTORY ${BoostDirPath}/build)
            
 execute_process(COMMAND ${b2Args} WORKING_DIRECTORY ${BoostDirPath}/${BoostFolderName}
                   RESULT_VARIABLE Result)
