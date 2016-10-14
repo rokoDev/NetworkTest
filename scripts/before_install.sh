@@ -4,7 +4,7 @@ if [ $TRAVIS_OS_NAME = osx ]
 then
 	brew update
     brew outdated cmake || brew upgrade cmake
-    brew outdated boost || brew upgrade boost
+    #brew outdated boost || brew upgrade boost
 elif [ $TRAVIS_OS_NAME = linux ]
 then
   #install cmake--------------------------------------------------------------------
