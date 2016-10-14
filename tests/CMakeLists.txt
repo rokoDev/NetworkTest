@@ -107,7 +107,7 @@ set(Boost_USE_STATIC_RUNTIME    OFF)
 
 set(Boost_NO_SYSTEM_PATHS ON)
 
-find_package(Boost ${BoostVersion} EXACT COMPONENTS unit_test_framework)
+find_package(Boost ${BoostVersion} EXACT REQUIRED COMPONENTS unit_test_framework)
 
 if(Boost_FOUND)
   message(STATUS "BOOST FOUND :)")
