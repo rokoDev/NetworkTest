@@ -15,17 +15,17 @@ branches:
     
 matrix:
   include:
-    - os: linux
-      compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-5
-      env: 
-        - COMPILER=g++-5
-        - BOOST_VERSION="1.60.0"
+    #- os: linux
+#      compiler: gcc
+#      addons:
+#        apt:
+#          sources:
+#            - ubuntu-toolchain-r-test
+#          packages:
+#            - g++-5
+#      env: 
+#        - COMPILER=g++-5
+#        - BOOST_VERSION="1.60.0"
     - os: osx
       compiler: clang
       env:
