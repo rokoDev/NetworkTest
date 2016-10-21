@@ -2,15 +2,15 @@ cmake_minimum_required(VERSION ${cmake_version})
 
 project(${LibName}_test)
 
-if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
-  set(BOOST_ROOT "C:/Libraries/boost_1_60_0")
-else()
-
 set(BoostVersion 1.60.0)
 
 string(REGEX REPLACE "beta\\.([0-9])$" "beta\\1" BoostFolderName ${BoostVersion})
 string(REPLACE "." "_" BoostFolderName ${BoostFolderName})
 set(BoostFolderName boost_${BoostFolderName})
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+  set(BOOST_ROOT "C:/Libraries/${BoostFolderName}")
+else()
 
 set(BoostDirPath "${CMAKE_SOURCE_DIR}/deps/boost")
 file(MAKE_DIRECTORY ${BoostDirPath})
