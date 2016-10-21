@@ -10,6 +10,10 @@ set(BoostFolderName boost_${BoostFolderName})
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
   set(BOOST_ROOT "C:/Libraries/${BoostFolderName}")
+  
+  #set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "C:/Libraries/${BoostFolderName}/include")
+
+  set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "C:/Libraries/${BoostFolderName}/lib")
 else()
 
 set(BoostDirPath "${CMAKE_SOURCE_DIR}/deps/boost")
