@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION ${cmake_version})
 
 project(${LibName}_test)
 
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+  set(BOOST_ROOT "C:/Libraries/boost_1_60_0")
+else()
+
 set(BoostVersion 1.60.0)
 
 string(REGEX REPLACE "beta\\.([0-9])$" "beta\\1" BoostFolderName ${BoostVersion})
@@ -93,6 +97,7 @@ execute_process(COMMAND ${b2Args} WORKING_DIRECTORY ${BoostDirPath}/${BoostFolde
 if(NOT Result EQUAL "0")
   message(FATAL_ERROR "Failed running ${b2Args}")
 endif()
+endif()
 
 set(Boost_DEBUG ON)
 set(Boost_DETAILED_FAILURE_MSG ON)
@@ -109,8 +114,7 @@ set(Boost_NO_SYSTEM_PATHS ON)
 
 find_package(Boost ${BoostVersion} EXACT REQUIRED COMPONENTS unit_test_framework)
 
-if(Boost_FOUND)
-  message(STATUS "BOOST FOUND :)")
+#if(Boost_FOUND)
   
   include_directories(${LIB_HEADERS} ${Boost_INCLUDE_DIRS})
   
@@ -128,4 +132,4 @@ if(Boost_FOUND)
 
   add_test(NAME test1 COMMAND test_executable)
   
-endif()
+#endif()

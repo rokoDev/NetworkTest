@@ -44,7 +44,7 @@ script:
 
 notifications:
   recipients:
-    - mishaDoter@gmail.com
+    - rokodevnet@gmail.com
   email:
     on_success: change
     on_failure: always
