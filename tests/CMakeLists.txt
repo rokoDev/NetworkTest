@@ -133,7 +133,8 @@ find_package(Boost ${BoostVersion} EXACT REQUIRED COMPONENTS unit_test_framework
   target_compile_definitions(test_executable PRIVATE "BOOST_TEST_DYN_LINK=1")
   
   target_link_libraries(test_executable
-						${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+  						Boost::unit_test_framework
+						#${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 						${LibName}
 	)
 
