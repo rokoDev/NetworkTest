@@ -130,10 +130,10 @@ find_package(Boost ${BoostVersion} EXACT REQUIRED COMPONENTS unit_test_framework
   #target_include_directories(test_executable PRIVATE ${Boost_INCLUDE_DIRS})
   
   # indicates the shared library variant
-  target_compile_definitions(test_executable PRIVATE "BOOST_TEST_DYN_LINK=1")
+  #target_compile_definitions(test_executable PRIVATE "BOOST_TEST_DYN_LINK=1")
   
   target_link_libraries(test_executable
-  						Boost::boost_unit_test_framework
+  						Boost::unit_test_framework
 						#${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 						${LibName}
 	)
