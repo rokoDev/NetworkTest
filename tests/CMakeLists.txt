@@ -9,11 +9,11 @@ string(REPLACE "." "_" BoostFolderName ${BoostFolderName})
 set(BoostFolderName boost_${BoostFolderName})
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
-  set(BOOST_ROOT "C:/Libraries/${BoostFolderName}")
+  #set(BOOST_ROOT "C:/Libraries/${BoostFolderName}")
   
   #set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "C:/Libraries/${BoostFolderName}/include")
 
-  set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "C:/Libraries/${BoostFolderName}/lib")
+  #set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "C:/Libraries/${BoostFolderName}/lib")
 else()
 
 set(BoostDirPath "${CMAKE_SOURCE_DIR}/deps/boost")
@@ -112,7 +112,7 @@ enable_testing()
 
 set(Boost_USE_STATIC_LIBS		OFF)
 set(Boost_USE_MULTITHREADED		ON)
-#set(Boost_USE_STATIC_RUNTIME    OFF)
+set(Boost_USE_STATIC_RUNTIME    OFF)
 
 set(Boost_NO_SYSTEM_PATHS ON)
 
