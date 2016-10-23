@@ -11,9 +11,17 @@ build_script:
   - cmake -E make_directory build
   - cd build
   #- cmake -DCMAKE_BUILD_TYPE=Release .. #-G "Visual Studio 14 2015 Win64" ..
-  - cmake -G "Visual Studio 14 2015 Win64" ..
-  - cmake --build . --config Debug
+  #- cmake -G "Visual Studio 14 2015 Win64" ..
+#  - cmake --build . --config Debug
   #- ctest
   
+  #- cd tests
+  #- ctest -C Debug -VV
+  
+  
+  - cmake -G "Visual Studio 14 Win64" ..
+  - msbuild
+  - del CMakeCache.txt
+  - cmake .. -LA -G "NMake Makefiles"
   - cd tests
-  - ctest -C Debug -VV
+  - ctest
