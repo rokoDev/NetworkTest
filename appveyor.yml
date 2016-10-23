@@ -16,4 +16,4 @@ build_script:
   #- ctest
   
   - cd tests
-  - ctest -C Release -VV
+  - ctest -C Release -VV --verbose
