@@ -103,8 +103,8 @@ if(NOT Result EQUAL "0")
 endif()
 endif()
 
-set(Boost_DEBUG ON)
-set(Boost_DETAILED_FAILURE_MSG ON)
+#set(Boost_DEBUG ON)
+#set(Boost_DETAILED_FAILURE_MSG ON)
 
 message(STATUS "BOOST_ROOT >> ${BOOST_ROOT}")
 
