@@ -15,7 +15,7 @@ build_script:
   - cmake --build . --config Debug
   #- ctest
   
-  test_script:
+test_script:
   - cd tests
   - ctest --output-on-failure -C %config%
   #- cd tests
