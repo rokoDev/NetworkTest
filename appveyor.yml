@@ -1,5 +1,12 @@
 os: Visual Studio 2015
 
+branches:
+  only:
+    - master
+    
+configuration:
+  - Release
+
 # Boost is already installed on AppVeyor.
 environment:
   BOOST_ROOT: C:\Libraries\boost_1_60_0
