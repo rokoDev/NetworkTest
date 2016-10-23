@@ -17,6 +17,6 @@ build_script:
   
 test_script:
   - cd tests
-  - ctest --output-on-failure -C Release
+  - ctest -C Release
   #- cd tests
 #  - ctest -C Debug -VV
