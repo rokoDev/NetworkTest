@@ -22,12 +22,13 @@ build_script:
   - cmake -E make_directory build
   - cd build
   #- cmake -DCMAKE_BUILD_TYPE=Release .. #-G "Visual Studio 14 2015 Win64" ..
-  - cmake -G "Visual Studio 14 2015 Win64" ..
-  - cmake --build . --config Release
+  - cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=RELEASE .. #"Visual Studio 14 2015 Win64" ..
+  #- cmake --build . --config Release
+  - mingw32-make
   #- ctest
   
 test_script:
-  - cd tests
-  - ctest -C Release
   #- cd tests
-#  - ctest -C Debug -VV
+  #- ctest -C Release
+  - cd tests
+  - ctest -VV
