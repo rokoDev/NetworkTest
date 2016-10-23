@@ -6,6 +6,9 @@ branches:
     
 configuration:
   - Release
+  
+build:
+  verbosity: detailed
 
 # Boost is already installed on AppVeyor.
 environment:
