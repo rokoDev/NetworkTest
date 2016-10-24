@@ -29,6 +29,7 @@ build_script:
   
 test_script:
   - cd tests
-  - cmd: ctest -C Release -VV
+  #- cmd: ctest -C Release -VV
+  - ctest -VV -C Release
   #- cd tests
 #  - ctest -C Debug -VV
