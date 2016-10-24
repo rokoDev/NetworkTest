@@ -42,13 +42,9 @@ test_script:
   - cmd: set PATH=%PATH%;%BOOST_LIBRARYDIR%
   - cmd: 'cd C:\projects\networktest\build\tests' #\%CONFIGURATION%'
   #- cmd: dir
+  #- cmd: 'cd C:\projects\networktest\build\tests\%CONFIGURATION%'
   #- cmd: test_executable.exe --log_level=test_suite #--run_test=int_test,config_test
-  #- cmd: ctest -C %CONFIGURATION% -VV
-  - ctest -V --output-on-failure -C Release
-#  #- ctest -VV -C Release --timeout 600
-#  #- cd tests
-##  - ctest -C Debug -VV
-#  - ctest -VV
+  - ctest -VV --output-on-failure -C %CONFIGURATION%
 
 #on_finish:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))

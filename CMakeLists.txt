@@ -19,7 +19,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(LIB_HEADERS ${CMAKE_SOURCE_DIR}/include/${LibName})
 
-enable_testing()
+enable_testing() #must be in root(top) CMakeLists.txt to avoid "No tests were found" message on Appveyor ci
 
 add_subdirectory(src)
 add_subdirectory(tests)
