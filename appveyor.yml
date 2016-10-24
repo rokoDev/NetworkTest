@@ -20,7 +20,8 @@ build:
 before_build:
   - cmake -E make_directory build
   - cd build
-  - cmake -G "NMake Makefiles" "-DBUILD_SHARED_LIBS=YES" .. #"Visual Studio 14 2015 Win64" "-DBUILD_SHARED_LIBS=YES" ..
+  #- cmake -G "MinGW Makefiles" "-DBUILD_SHARED_LIBS=YES" .. #"Visual Studio 14 2015 Win64" "-DBUILD_SHARED_LIBS=YES" ..
+  - cmake -G "Visual Studio 14 2015 Win64" "-DBUILD_SHARED_LIBS=YES" ..
 
 # Boost is already installed on AppVeyor.
 environment:
