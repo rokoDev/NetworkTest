@@ -20,7 +20,7 @@ configuration:
 matrix:
   fast_finish: true
   
-build: on
+build:
   verbosity: detailed
 
 # Boost is already installed on AppVeyor.
