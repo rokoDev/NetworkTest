@@ -1,8 +1,8 @@
 version: 1.0.{build}
 os: Visual Studio 2015
 
-#init:
-#  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+init:
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 branches:
   only:
@@ -25,7 +25,7 @@ environment:
   BOOST_ROOT: C:\Libraries\boost_1_60_0
   BOOST_INCLUDEDIR: C:\Libraries\boost_1_60_0
   BOOST_LIBRARYDIR: C:\Libraries\boost_1_60_0\lib64-msvc-14.0
-  PATH: "$($env:PATH);$env:BOOST_LIBRARYDIR"
+#  PATH: "$($env:PATH);$env:BOOST_LIBRARYDIR"
 
 build_script:
   - cmake -E make_directory build
@@ -33,6 +33,7 @@ build_script:
   - cmake -G "Visual Studio 14 2015 Win64" -DBUILD_TESTS=ON ..
   - cmake --build . --config %CONFIGURATION%
   
+  - cmd: set PATH=%PATH%;%BOOST_LIBRARYDIR%
   #- cd tests/%CONFIGURATION%
   - cmd: 'cd C:\projects\networktest\build\tests\Release'
   - cmd: dir
@@ -50,5 +51,5 @@ build_script:
 ##  - ctest -C Debug -VV
 #  - ctest -VV
 
-#on_finish:
-#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
