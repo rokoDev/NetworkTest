@@ -33,19 +33,10 @@ build_script:
   - cmake -G "Visual Studio 14 2015 Win64" ..
   - cmake --build . --config %CONFIGURATION%
   
-  #- cmd: set PATH=%PATH%;%BOOST_LIBRARYDIR%
-#  #- cd tests/%CONFIGURATION%
-#  - cmd: 'cd C:\projects\networktest\build\tests\Release'
-#  - cmd: dir
-#  #- ctest -C %CONFIGURATION% #--build-exe-dir %CONFIGURATION%
-#  #- make test
-#  - cmd: test_executable.exe --log_level=test_suite #--run_test=int_test,config_test
-#  #- cmd: ctest -VV -C %CONFIGURATION% --build-exe-dir C:\projects\networktest\build\tests\Release
-  
 test_script:
   - cmd: set PATH=%PATH%;%BOOST_LIBRARYDIR%
   #- cd tests/%CONFIGURATION%
-  - cmd: 'cd C:\projects\networktest\build\tests\Release'
+  - cmd: 'cd C:\projects\networktest\build\tests\%CONFIGURATION%'
   - cmd: dir
   #- ctest -C %CONFIGURATION% #--build-exe-dir %CONFIGURATION%
   #- make test
