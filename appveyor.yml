@@ -29,7 +29,8 @@ build_script:
   - cmake -G "Visual Studio 14 2015 Win64" ..
   - cmake --build . --config %CONFIGURATION%
   
-  - cd tests/%CONFIGURATION%
+  #- cd tests/%CONFIGURATION%
+  - cmd: 'C:\projects\networktest\build\tests\Release'
   - cmd: dir
   #- ctest -C %CONFIGURATION% #--build-exe-dir %CONFIGURATION%
   #- make test
