@@ -4,7 +4,8 @@ branches:
   only:
     - master
     
-platform: x64
+platform:
+  - x64
 configuration:
   - Release
   
@@ -30,6 +31,6 @@ build_script:
 test_script:
   - cd tests
   #- cmd: ctest -C Release -VV
-  - ctest -VV -C Release
+  - ctest -VV -C Release --timeout 600
   #- cd tests
 #  - ctest -C Debug -VV
