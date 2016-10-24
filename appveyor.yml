@@ -25,7 +25,6 @@ environment:
   BOOST_ROOT: C:\Libraries\boost_1_60_0
   BOOST_INCLUDEDIR: C:\Libraries\boost_1_60_0
   BOOST_LIBRARYDIR: C:\Libraries\boost_1_60_0\lib64-msvc-14.0
-#  PATH: "$($env:PATH);$env:BOOST_LIBRARYDIR"
 
 build_script:
   - cmake -E make_directory build
@@ -35,15 +34,9 @@ build_script:
   
 test_script:
   - cmd: set PATH=%PATH%;%BOOST_LIBRARYDIR%
-  #- cd tests/%CONFIGURATION%
   - cmd: 'cd C:\projects\networktest\build\tests\%CONFIGURATION%'
-  - cmd: dir
-  #- ctest -C %CONFIGURATION% #--build-exe-dir %CONFIGURATION%
-  #- make test
+  #- cmd: dir
   - cmd: test_executable.exe --log_level=test_suite #--run_test=int_test,config_test
-  #- cmd: ctest -VV -C %CONFIGURATION% --build-exe-dir C:\projects\networktest\build\tests\Release
-#  - cd tests/%CONFIGURATION%
-#  - cmd: dir
 #  #- cmd: ctest -C %CONFIGURATION% -VV
 #  #- ctest -VV -C Release --timeout 600
 #  #- cd tests
@@ -52,3 +45,13 @@ test_script:
 
 #on_finish:
 # - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
+notifications:
+  - provider: Email
+    to:
+      - rokodevnet@gmail.com
+    subject: 'Build {{status}}'                  # optional
+    message: "{{message}}, {{commitId}}, ..."    # optional
+    on_build_success: true #|false
+    on_build_failure: true #|false
+    on_build_status_changed: true #|false
