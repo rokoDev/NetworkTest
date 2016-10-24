@@ -25,6 +25,7 @@ environment:
   BOOST_ROOT: C:\Libraries\boost_1_60_0
   BOOST_INCLUDEDIR: C:\Libraries\boost_1_60_0
   BOOST_LIBRARYDIR: C:\Libraries\boost_1_60_0\lib64-msvc-14.0
+  PATH: "$($env:PATH);$env:BOOST_LIBRARYDIR"
 
 build_script:
   - cmake -E make_directory build
