@@ -108,7 +108,7 @@ endif()
 
 message(STATUS "BOOST_ROOT >> ${BOOST_ROOT}")
 
-enable_testing()
+#enable_testing()
 
 set(Boost_USE_STATIC_LIBS		OFF)
 set(Boost_USE_MULTITHREADED		ON)
