@@ -1,8 +1,8 @@
 version: 1.0.{build}
 os: Visual Studio 2015
 
-init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#init:
+#  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 branches:
   only:
@@ -39,8 +39,8 @@ build_script:
   - cmd: dir
   #- ctest -C %CONFIGURATION% #--build-exe-dir %CONFIGURATION%
   #- make test
-  - cmd: test_executable.exe
-  #- cmd: ctest -VV -C %CONFIGURATION% --timeout 600
+  #- cmd: test_executable.exe
+  - cmd: ctest -VV -C %CONFIGURATION% #--timeout 600
   
 #test_script:
 #  - cd tests/%CONFIGURATION%
@@ -51,5 +51,5 @@ build_script:
 ##  - ctest -C Debug -VV
 #  - ctest -VV
 
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#on_finish:
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
