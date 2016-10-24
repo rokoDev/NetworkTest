@@ -31,8 +31,8 @@ build_script:
   
   - cd tests/%CONFIGURATION%
   - cmd: dir
-  #- ctest -C %CONFIGURATION% #--build-exe-dir %CONFIGURATION%
-  - make test
+  - ctest -C %CONFIGURATION% #--build-exe-dir %CONFIGURATION%
+  #- make test
   #- cmd: test_executable.exe
   #- cmd: ctest -VV -C %CONFIGURATION% --timeout 600
   
