@@ -8,6 +8,9 @@ branches:
   only:
     - master
     
+# set clone depth
+clone_depth: 5
+    
 platform:
   - x64
   
@@ -17,7 +20,7 @@ configuration:
 matrix:
   fast_finish: true
   
-build:
+build: on
   verbosity: detailed
 
 # Boost is already installed on AppVeyor.
