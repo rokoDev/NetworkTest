@@ -29,11 +29,16 @@ build_script:
   - cmake -G "Visual Studio 14 2015 Win64" ..
   - cmake --build . --config %CONFIGURATION%
   
-test_script:
   - cd tests/%CONFIGURATION%
+  - cmd: cd
   - cmd: dir
-  #- cmd: ctest -C %CONFIGURATION% -VV
-  #- ctest -VV -C Release --timeout 600
-  #- cd tests
-#  - ctest -C Debug -VV
   - ctest -VV
+  
+#test_script:
+#  - cd tests/%CONFIGURATION%
+#  - cmd: dir
+#  #- cmd: ctest -C %CONFIGURATION% -VV
+#  #- ctest -VV -C Release --timeout 600
+#  #- cd tests
+##  - ctest -C Debug -VV
+#  - ctest -VV
