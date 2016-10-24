@@ -29,9 +29,9 @@ build_script:
   - cmake -G "Visual Studio 14 2015 Win64" ..
   - cmake --build . --config %CONFIGURATION%
   
-  - cd tests #/%CONFIGURATION%
+  - cd tests/test_executable.dir #/%CONFIGURATION%
   - cmd: dir
-  - ctest -C %CONFIGURATION% --build-exe-dir %CONFIGURATION%
+  - ctest -C %CONFIGURATION% #--build-exe-dir %CONFIGURATION%
   #- cmd: test_executable.exe
   #- cmd: ctest -VV -C %CONFIGURATION% --timeout 600
   
