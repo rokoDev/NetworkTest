@@ -39,7 +39,7 @@ build_script:
   - cmd: dir
   #- ctest -C %CONFIGURATION% #--build-exe-dir %CONFIGURATION%
   #- make test
-  - cmd: test_executable.exe --log_level=all --output_format=HRF
+  - cmd: test_executable.exe --log_level=test_suite --output_format=HRF
   #- cmd: ctest -VV -C %CONFIGURATION% --build-exe-dir C:\projects\networktest\build\tests\Release
   
 #test_script:
