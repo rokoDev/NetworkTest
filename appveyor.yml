@@ -35,7 +35,7 @@ build_script:
   - cmake -E make_directory build
   - cd build
   #- cmake -DCMAKE_BUILD_TYPE=Release .. #-G "Visual Studio 14 2015 Win64" ..
-  - cmake -G "Visual Studio 14 2015 Win64" -DBOOST_ROOT="%BOOST_ROOT% -DBOOST_LIBRARYDIR="%BOOST_LIBRARYDIR% -BOOST_INCLUDEDIR="%BOOST_INCLUDEDIR% ..
+  - cmake -G "Visual Studio 14 2015 Win64" -DBOOST_ROOT=%BOOST_ROOT% -DBOOST_LIBRARYDIR=%BOOST_LIBRARYDIR% -DBOOST_INCLUDEDIR=%BOOST_INCLUDEDIR% ..
   #- cmake --build . --config Release
   - cmake --build . --config %CONFIGURATION%
   #- ctest
