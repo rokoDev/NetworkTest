@@ -8,8 +8,8 @@ branches:
   only:
     - master
     
-#skip_commits:
-#  message: /(\[skip ci\]|\[ci skip\])/
+skip_commits:
+  message: /(\[skip ci\]|\[ci skip\])/
     
 # set clone depth
 clone_depth: 5
