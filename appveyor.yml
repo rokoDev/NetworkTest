@@ -1,3 +1,4 @@
+version: 1.0.{build}
 os: Visual Studio 2015
 
 branches:
@@ -19,7 +20,7 @@ build:
 before_build:
   - cmake -E make_directory build
   - cd build
-  - if %PLATFORM% == x86 (cmake ../) else (cmake -G "Visual Studio 14 2015 Win64" "-DCMAKE_BUILD_TYPE=Release" "-DBUILD_SHARED_LIBS=YES" ../)
+  - cmake -G "Visual Studio 14 2015 Win64" "-DBUILD_SHARED_LIBS=YES" ..
 
 # Boost is already installed on AppVeyor.
 environment:
@@ -40,7 +41,7 @@ build_script:
   
 test_script:
   - cd tests
-  - cmd: ctest -C Release -VV
+  - cmd: ctest -C %CONFIGURATION% -VV
   #- ctest -VV -C Release --timeout 600
   #- cd tests
 #  - ctest -C Debug -VV
