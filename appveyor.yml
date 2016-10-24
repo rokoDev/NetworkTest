@@ -40,7 +40,8 @@ test_script:
   - cmd: 'cd C:\projects\networktest\build\tests\%CONFIGURATION%'
   #- cmd: dir
   - cmd: test_executable.exe --log_level=test_suite #--run_test=int_test,config_test
-  - cmd: ctest -C %CONFIGURATION% -VV
+  #- cmd: ctest -C %CONFIGURATION% -VV
+  - ctest -V --output-on-failure -C Release
 #  #- ctest -VV -C Release --timeout 600
 #  #- cd tests
 ##  - ctest -C Debug -VV
