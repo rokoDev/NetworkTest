@@ -32,7 +32,8 @@ build_script:
 test_script:
   - cd tests/%CONFIGURATION%
   - cmd: dir
-  - cmd: ctest -C %CONFIGURATION% -VV
+  #- cmd: ctest -C %CONFIGURATION% -VV
   #- ctest -VV -C Release --timeout 600
   #- cd tests
 #  - ctest -C Debug -VV
+  - ctest -VV
