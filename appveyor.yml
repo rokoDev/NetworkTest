@@ -32,7 +32,7 @@ build_script:
   - cd tests/%CONFIGURATION%
   - cmd: cd
   - cmd: dir
-  - ctest -VV -C %CONFIGURATION% --timeout 600
+  - cmd: ctest -VV -C %CONFIGURATION% --timeout 600
   
 #test_script:
 #  - cd tests/%CONFIGURATION%
