@@ -25,7 +25,7 @@ BOOST_AUTO_TEST_CASE(area_test)
 {
     Rectangle rect;
     rect.set_values(2, 3);
-    BOOST_TEST(6 == rect.area());
+    BOOST_TEST(60 == rect.area());
 }
 
 BOOST_AUTO_TEST_CASE(config_test)
