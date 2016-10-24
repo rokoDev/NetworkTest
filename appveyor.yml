@@ -30,8 +30,7 @@ build_script:
   - cmake --build . --config %CONFIGURATION%
   
 test_script:
-  - cd tests/Release
-  - cmd: dir
+  - cd tests/%CONFIGURATION%
   - cmd: ctest -C %CONFIGURATION% -VV
   #- ctest -VV -C Release --timeout 600
   #- cd tests
