@@ -30,7 +30,7 @@ build_script:
   - cmake --build . --config %CONFIGURATION%
   
   #- cd tests/%CONFIGURATION%
-  - cmd: 'C:\projects\networktest\build\tests\Release'
+  - cmd: 'cd C:\projects\networktest\build\tests\Release'
   - cmd: dir
   #- ctest -C %CONFIGURATION% #--build-exe-dir %CONFIGURATION%
   #- make test
