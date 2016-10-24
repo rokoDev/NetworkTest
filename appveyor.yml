@@ -4,6 +4,7 @@ branches:
   only:
     - master
     
+platform: x64
 configuration:
   - Release
   
