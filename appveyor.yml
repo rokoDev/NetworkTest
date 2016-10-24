@@ -32,7 +32,7 @@ build_script:
   - cd tests/%CONFIGURATION%
   - cmd: cd
   - cmd: dir
-  - ctest -C %CONFIGURATION%
+  - ctest
   #- cmd: test_executable.exe
   #- cmd: ctest -VV -C %CONFIGURATION% --timeout 600
   
