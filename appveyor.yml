@@ -40,9 +40,9 @@ build_script:
   
 test_script:
   - cmd: set PATH=%PATH%;%BOOST_LIBRARYDIR%
-  - cmd: 'cd C:\projects\networktest\build\tests\%CONFIGURATION%'
+  - cmd: 'cd C:\projects\networktest\build\tests' #\%CONFIGURATION%'
   #- cmd: dir
-  - cmd: test_executable.exe --log_level=test_suite #--run_test=int_test,config_test
+  #- cmd: test_executable.exe --log_level=test_suite #--run_test=int_test,config_test
   #- cmd: ctest -C %CONFIGURATION% -VV
   - ctest -V --output-on-failure -C Release
 #  #- ctest -VV -C Release --timeout 600
