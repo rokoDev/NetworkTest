@@ -6,8 +6,8 @@ if [ $TRAVIS_OS_NAME = osx ]
 then
 	brew update
     brew outdated cmake || brew upgrade cmake
-    brew install doxygen
-    brew install graphviz
+    brew outdated doxygen || brew upgrade doxygen
+    brew outdated graphviz || brew upgrade graphviz
     #brew outdated boost || brew upgrade boost
     
     #find /Applications -maxdepth 1 -name "CMake*" -print
