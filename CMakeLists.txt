@@ -21,6 +21,6 @@ set(LIB_HEADERS ${CMAKE_SOURCE_DIR}/include/${LibName})
 
 enable_testing() #must be in root(top) CMakeLists.txt to avoid "No tests were found" message on Appveyor ci
 
+add_subdirectory(doc)
 add_subdirectory(src)
 add_subdirectory(tests)
-add_subdirectory(doc)
