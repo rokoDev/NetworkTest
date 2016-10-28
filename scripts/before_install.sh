@@ -7,6 +7,7 @@ then
 	brew update
     brew outdated cmake || brew upgrade cmake
     brew install doxygen
+    brew install graphviz
     #brew outdated boost || brew upgrade boost
     
     #find /Applications -maxdepth 1 -name "CMake*" -print
