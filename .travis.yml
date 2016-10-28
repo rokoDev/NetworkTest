@@ -14,14 +14,14 @@ branches:
     - master
     
 # Install dependencies
-addons:
-  apt:
-    packages:
-      - doxygen
-      - doxygen-doc
-      - doxygen-latex
-      - doxygen-gui
-      - graphviz
+#addons:
+#  apt:
+#    packages:
+#      - doxygen
+#      - doxygen-doc
+#      - doxygen-latex
+#      - doxygen-gui
+#      - graphviz
     
 matrix:
   include:
@@ -33,6 +33,11 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-5
+            - doxygen
+            - doxygen-doc
+            - doxygen-latex
+            - doxygen-gui
+            - graphviz
       env: 
         - COMPILER=g++-5
         - BOOST_VERSION="1.60.0"
