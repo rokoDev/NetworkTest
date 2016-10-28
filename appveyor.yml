@@ -22,7 +22,7 @@ matrix:
   
 install:
   - choco install doxygen.portable
-  #- appveyor-retry choco install graphviz.portable
+  - choco install graphviz.portable
   
 build:
   verbosity: detailed
