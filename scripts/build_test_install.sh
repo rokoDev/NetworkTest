@@ -10,6 +10,7 @@ cd build
 #export LD=/usr/local/gcc-6.2.0/bin/gcc-6.2.0
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=${COMPILER} ..
 cmake --build .
+make doc
 
 cd tests
 ctest -VV

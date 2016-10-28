@@ -20,6 +20,10 @@ configuration:
 matrix:
   fast_finish: true
   
+install:
+  - choco install doxygen.portable
+  #- appveyor-retry choco install graphviz.portable
+  
 build:
   verbosity: detailed
 
@@ -34,6 +38,7 @@ build_script:
   - cd build
   - cmake -G "Visual Studio 14 2015 Win64" ..
   - cmake --build . --config %CONFIGURATION%
+  - cmake ../doc
   
 test_script:
   - cmd: set PATH=%PATH%;%BOOST_LIBRARYDIR%
