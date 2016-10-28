@@ -1,9 +1,9 @@
 #include "Rectangle.h"
 
-void Rectangle::set_values (int x, int y)
+void Rectangle::set_values (int w, int h)
 {
-    width = x;
-    height = y;
+    width = w;
+    height = h;
 }
 
 int Rectangle::area()

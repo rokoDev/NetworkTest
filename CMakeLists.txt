@@ -23,3 +23,4 @@ enable_testing() #must be in root(top) CMakeLists.txt to avoid "No tests were fo
 
 add_subdirectory(src)
 add_subdirectory(tests)
+add_subdirectory(doc)
