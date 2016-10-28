@@ -38,6 +38,7 @@ build_script:
   - cd build
   - cmake -G "Visual Studio 14 2015 Win64" -DBUILD_DOCS=ON ..
   - cmake --build . --config %CONFIGURATION%
+  - cmake install
   
 test_script:
   - cmd: set PATH=%PATH%;%BOOST_LIBRARYDIR%

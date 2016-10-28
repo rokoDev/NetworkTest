@@ -7,7 +7,7 @@ language: cpp
 #    - BOOST_ROOT="${DEPS_DIR}/boost/installed/boost_1_60_0"
 #    - LD_LIBRARY_PATH="${BOOST_ROOT}/lib":${LD_LIBRARY_PATH}
     
-sudo: false #required
+sudo: required #false
     
 branches:
   only:
