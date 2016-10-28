@@ -8,9 +8,9 @@ cd build
 #export CC=/usr/local/gcc-6.2.0/bin/gcc-6.2.0
 #export CXX=/usr/local/gcc-6.2.0/bin/g++-6.2.0
 #export LD=/usr/local/gcc-6.2.0/bin/gcc-6.2.0
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=${COMPILER} ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=${COMPILER} -DBUILD_DOCS=ON ..
 cmake --build .
-make doc
+#make doc
 
 cd tests
 ctest -VV
