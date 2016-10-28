@@ -27,7 +27,7 @@ matrix:
   include:
     - os: linux
       compiler: gcc
-    - before_install:
+      before_install:
 #      - sudo apt-get install python-software-properties 
 #      - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
 #      - sudo apt-get update
