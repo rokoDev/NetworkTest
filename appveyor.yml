@@ -36,7 +36,7 @@ environment:
 build_script:
   - cmake -E make_directory build
   - cd build
-  - cmake -G "Visual Studio 14 2015 Win64" -DBUILD_DOCS=ON ..
+  - cmake -G "Visual Studio 14 2015 Win64" -DBUILD_DOCUMENTATION=ON ..
   - cmake --build . --config %CONFIGURATION%
   - cmake install
   
