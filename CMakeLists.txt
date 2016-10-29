@@ -56,11 +56,14 @@ if(BUILD_DOCUMENTATION)
         COMMENT "Generating API documentation with Doxygen"
         VERBATIM)
         
-    add_custom_command(TARGET doc
- 	  POST_BUILD
- 	  COMMAND "${CMAKE_MAKE_PROGRAM}"
- 	  COMMENT	"Running LaTeX for Doxygen documentation in ${OUTPUT_DIR}/latex..."
- 	  WORKING_DIRECTORY "${OUTPUT_DIR}/latex")
+    find_package(LATEX)
+    if(LATEX_FOUND)
+      add_custom_command(TARGET doc
+ 	    POST_BUILD
+ 	    COMMAND "${CMAKE_MAKE_PROGRAM}"
+ 	    COMMENT	"Running LaTeX for Doxygen documentation in ${OUTPUT_DIR}/latex..."
+ 	    WORKING_DIRECTORY "${OUTPUT_DIR}/latex")
+    endif()
 
     #TODO where doc will be installed
     install(
