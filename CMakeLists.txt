@@ -34,11 +34,22 @@ if(BUILD_DOCUMENTATION)
         message(FATAL_ERROR "Doxygen is needed to build the documentation.")
     endif()
     
-    message(STATUS "CMAKE_CURRENT_SOURCE_DIR:${CMAKE_CURRENT_SOURCE_DIR}")
+#    message(STATUS "CMAKE_CURRENT_SOURCE_DIR:${CMAKE_CURRENT_SOURCE_DIR}")
+#    message(STATUS "CMAKE_CURRENT_BINARY_DIR:${CMAKE_CURRENT_BINARY_DIR}")
+#    message(STATUS "CMAKE_BINARY_DIR:${CMAKE_BINARY_DIR}")
+#    message(STATUS "PROJECT_BINARY_DIR:${PROJECT_BINARY_DIR}")
+#    message(STATUS "PROJECT_NAME:${PROJECT_NAME}")
+#    message(STATUS "PROJECT_SOURCE_DIR:${PROJECT_SOURCE_DIR}")
+    
+    set(BRIEF_DESCRIPTION "This is a library to transmit data over the internet.")
+    set(OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/doc)
+    set(INPUT_DIRS "\
+                    \"${CMAKE_CURRENT_SOURCE_DIR}/include\" \\ \
+                    \"${CMAKE_CURRENT_SOURCE_DIR}/src\" \
+                    ")
+    message(STATUS "OUTPUT_DIR:${OUTPUT_DIR}")
+    message(STATUS "INPUT_DIRS:${INPUT_DIRS}")
     message(STATUS "CMAKE_CURRENT_BINARY_DIR:${CMAKE_CURRENT_BINARY_DIR}")
-    message(STATUS "CMAKE_BINARY_DIR:${CMAKE_BINARY_DIR}")
-    message(STATUS "PROJECT_BINARY_DIR:${PROJECT_BINARY_DIR}")
-    message(STATUS "PROJECT_NAME:${PROJECT_NAME}")
 
     #configure doxygen configuration file
     set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doc/Doxyfile.in)
@@ -55,7 +66,7 @@ if(BUILD_DOCUMENTATION)
     #TODO where doc will be installed
     install(
         DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc/
-        DESTINATION ./doc 
+        DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/doc 
         OPTIONAL)
 endif()
 
