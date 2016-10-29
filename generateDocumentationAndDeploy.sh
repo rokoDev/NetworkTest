@@ -69,15 +69,17 @@ echo "" > .nojekyll
 
 ################################################################################
 ##### Generate the Doxygen code documentation and log the output.          #####
-echo 'Generating Doxygen code documentation...'
+echo 'Generating Doxygen code documentation SimpleNet...'
+mkdir build && cd build
 # Redirect both stderr and stdout to the log file AND the console.
-doxygen $DOXYFILE 2>&1 | tee doxygen.log
+doxygen $DOXYFILE 2>&1 | tee ../doxygenSimpleNet.log
 
 ################################################################################
 ##### Upload the documentation to the gh-pages branch of the repository.   #####
 # Only upload if Doxygen successfully created the documentation.
 # Check this by verifying that the html directory and the file html/index.html
 # both exist. This is a good indication that Doxygen did it's work.
+cd doc
 if [ -d "html" ] && [ -f "html/index.html" ]; then
 
     echo 'Uploading documentation to the gh-pages branch...'
