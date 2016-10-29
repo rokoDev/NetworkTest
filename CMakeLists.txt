@@ -43,6 +43,7 @@ if(BUILD_DOCUMENTATION)
     message(STATUS "OUTPUT_DIR:${OUTPUT_DIR}")
     message(STATUS "INPUT_DIRS:${INPUT_DIRS}")
     message(STATUS "CMAKE_CURRENT_BINARY_DIR:${CMAKE_CURRENT_BINARY_DIR}")
+    message(STATUS "CMAKE_MAKE_PROGRAM:${CMAKE_MAKE_PROGRAM}")
 
     #configure doxygen configuration file
     set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/doc/Doxyfile.in)
@@ -56,7 +57,8 @@ if(BUILD_DOCUMENTATION)
         COMMENT "Generating API documentation with Doxygen"
         VERBATIM)
         
-    find_package(LATEX)
+    #find_package(LATEX)
+    find_package(LATEX COMPONENTS PDFLATEX)
     if(LATEX_FOUND)
       add_custom_command(TARGET doc
  	    POST_BUILD
