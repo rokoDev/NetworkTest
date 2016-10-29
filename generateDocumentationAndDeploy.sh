@@ -43,6 +43,8 @@ set -e
 mkdir code_docs
 cd code_docs
 
+pwd
+
 # Get the current gh-pages branch
 git clone -b gh-pages https://git@$GH_REPO_REF
 cd $GH_REPO_NAME
@@ -69,20 +71,16 @@ echo "" > .nojekyll
 
 ################################################################################
 ##### Generate the Doxygen code documentation and log the output.          #####
-ls
 echo 'Generating Doxygen code documentation SimpleNet...'
-mkdir build && cd build
 # Redirect both stderr and stdout to the log file AND the console.
 doxygen $DOXYFILE 2>&1 | tee ../doxygenSimpleNet.log
-
-ls
 
 ################################################################################
 ##### Upload the documentation to the gh-pages branch of the repository.   #####
 # Only upload if Doxygen successfully created the documentation.
 # Check this by verifying that the html directory and the file html/index.html
 # both exist. This is a good indication that Doxygen did it's work.
-cd doc
+cd ../..
 if [ -d "html" ] && [ -f "html/index.html" ]; then
 
     echo 'Uploading documentation to the gh-pages branch...'
