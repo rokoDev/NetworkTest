@@ -12,6 +12,8 @@ sudo: required #false
 branches:
   only:
     - master
+  except:
+    - gh-pages
     
 # Install dependencies
 #addons:
@@ -42,6 +44,9 @@ matrix:
       env: 
         - COMPILER=g++-5
         - BOOST_VERSION="1.60.0"
+        - GH_REPO_NAME: NetworkTest
+        - DOXYFILE: $TRAVIS_BUILD_DIR/build/Doxyfile
+        - GH_REPO_REF: github.com/rokoDev/NetworkTest.git
     - os: osx
       compiler: clang
       addons:
@@ -62,6 +67,12 @@ install:
 script: 
   - export CMAKE_OPTIONS=${CMAKE_OPTIONS}" -DBOOST_ROOT=${DEPS_DIR}/boost/installed/boost_1_60_0 -D CMAKE_CXX_COMPILER=${COMPILER}"
   - ./scripts/build_test_install.sh
+  
+# Generate and deploy documentation
+after_success:
+  - cd $TRAVIS_BUILD_DIR
+  - chmod +x generateDocumentationAndDeploy.sh
+  - ./generateDocumentationAndDeploy.sh
 
 notifications:
   recipients:
