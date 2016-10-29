@@ -58,7 +58,7 @@ if(BUILD_DOCUMENTATION)
         VERBATIM)
         
     #find_package(LATEX)
-    find_package(LATEX COMPONENTS PDFLATEX)
+    find_package(LATEX)
     if(LATEX_FOUND)
       add_custom_command(TARGET doc
  	    POST_BUILD

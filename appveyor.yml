@@ -39,7 +39,7 @@ build_script:
   - cmake -G "Visual Studio 14 2015 Win64" -DBUILD_DOCUMENTATION=ON ..
   - cmake --build . --config %CONFIGURATION%
   - cd ./doc/latex
-  - make.bat
+  - make doc
   - cd ../..
   - cmake install
   
