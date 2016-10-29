@@ -60,7 +60,7 @@ if(BUILD_DOCUMENTATION)
     #TODO where doc will be installed
     install(
         DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc/
-        DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/installed/doc 
+        DESTINATION ${CMAKE_CURRENT_SOURCE_DIR} #/installed/doc 
         OPTIONAL)
 endif()
 
