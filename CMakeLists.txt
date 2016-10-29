@@ -34,13 +34,6 @@ if(BUILD_DOCUMENTATION)
         message(FATAL_ERROR "Doxygen is needed to build the documentation.")
     endif()
     
-#    message(STATUS "CMAKE_CURRENT_SOURCE_DIR:${CMAKE_CURRENT_SOURCE_DIR}")
-#    message(STATUS "CMAKE_CURRENT_BINARY_DIR:${CMAKE_CURRENT_BINARY_DIR}")
-#    message(STATUS "CMAKE_BINARY_DIR:${CMAKE_BINARY_DIR}")
-#    message(STATUS "PROJECT_BINARY_DIR:${PROJECT_BINARY_DIR}")
-#    message(STATUS "PROJECT_NAME:${PROJECT_NAME}")
-#    message(STATUS "PROJECT_SOURCE_DIR:${PROJECT_SOURCE_DIR}")
-    
     set(BRIEF_DESCRIPTION "This is a library to transmit data over the internet.")
     set(OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/doc)
     set(INPUT_DIRS "\
@@ -62,6 +55,12 @@ if(BUILD_DOCUMENTATION)
         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
         COMMENT "Generating API documentation with Doxygen"
         VERBATIM)
+        
+    add_custom_command(TARGET doxygen
+ 	  POST_BUILD
+ 	  COMMAND "${CMAKE_MAKE_PROGRAM}"
+ 	  COMMENT	"Running LaTeX for Doxygen documentation in ${OUTPUT_DIR}/latex..."
+ 	  WORKING_DIRECTORY "${OUTPUT_DIR}/latex")
 
     #TODO where doc will be installed
     install(
