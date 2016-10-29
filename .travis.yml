@@ -45,7 +45,7 @@ matrix:
         - COMPILER=g++-5
         - BOOST_VERSION="1.60.0"
         - GH_REPO_NAME: NetworkTest
-        - DOXYFILE: $TRAVIS_BUILD_DIR/build/Doxyfile
+        - DOXYFILE: $TRAVIS_BUILD_DIR/doc/Doxyfile
         - GH_REPO_REF: github.com/rokoDev/NetworkTest.git
     - os: osx
       compiler: clang
