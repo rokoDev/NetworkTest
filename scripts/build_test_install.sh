@@ -9,7 +9,6 @@ cd build
 #export CXX=/usr/local/gcc-6.2.0/bin/g++-6.2.0
 #export LD=/usr/local/gcc-6.2.0/bin/gcc-6.2.0
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=${COMPILER} -DBUILD_DOCUMENTATION=ON ..
-make doc
 cmake --build .
 #make doc
 
