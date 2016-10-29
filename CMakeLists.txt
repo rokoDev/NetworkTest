@@ -56,7 +56,7 @@ if(BUILD_DOCUMENTATION)
         COMMENT "Generating API documentation with Doxygen"
         VERBATIM)
         
-    add_custom_command(TARGET doxygen
+    add_custom_command(TARGET doc
  	  POST_BUILD
  	  COMMAND "${CMAKE_MAKE_PROGRAM}"
  	  COMMENT	"Running LaTeX for Doxygen documentation in ${OUTPUT_DIR}/latex..."
