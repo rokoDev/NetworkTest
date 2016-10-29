@@ -51,11 +51,10 @@ cd $GH_REPO_NAME
 
 ##### Configure git.
 # Set the push default to simple i.e. push only the current branch.
-#git config --global push.default simple
-git config push.default simple
+git config --global push.default simple
 # Pretend to be an user called Travis CI.
-git config user.name "rokoDev"
-git config user.email "mishaDoter@gmail.com"
+git config user.name "Travis CI"
+git config user.email "travis@travis-ci.org"
 
 # Remove everything currently in the gh-pages branch.
 # GitHub is smart enough to know which files have changed and which files have
@@ -81,7 +80,7 @@ doxygen $DOXYFILE 2>&1 | tee ../doxygenSimpleNet.log
 # Only upload if Doxygen successfully created the documentation.
 # Check this by verifying that the html directory and the file html/index.html
 # both exist. This is a good indication that Doxygen did it's work.
-cd ../..
+#cd ../..
 if [ -d "html" ] && [ -f "html/index.html" ]; then
 
     echo 'Uploading documentation to the gh-pages branch...'
