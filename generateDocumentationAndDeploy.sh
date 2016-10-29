@@ -69,10 +69,13 @@ echo "" > .nojekyll
 
 ################################################################################
 ##### Generate the Doxygen code documentation and log the output.          #####
+ls
 echo 'Generating Doxygen code documentation SimpleNet...'
 mkdir build && cd build
 # Redirect both stderr and stdout to the log file AND the console.
 doxygen $DOXYFILE 2>&1 | tee ../doxygenSimpleNet.log
+
+ls
 
 ################################################################################
 ##### Upload the documentation to the gh-pages branch of the repository.   #####
