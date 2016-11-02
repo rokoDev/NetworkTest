@@ -33,3 +33,15 @@ BOOST_AUTO_TEST_CASE(config_test)
     auto major = SimpleNet::Version::Major;
     BOOST_TEST(0 == major);
 }
+
+#ifdef _WIN32
+
+BOOST_AUTO_TEST_CASE(win_flag_test)
+{
+    int i = 3;
+    BOOST_TEST(i);
+    BOOST_TEST(i == 3);
+    
+}
+
+#endif
