@@ -1,8 +1,8 @@
 version: 1.0.{build}
 os: Visual Studio 2015
 
-init:
-- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#init:
+#- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 branches:
   only:
@@ -36,7 +36,7 @@ environment:
 build_script:
   - cmake -E make_directory build
   - cd build
-  - cmake -G "Visual Studio 14 2015 Win64" -DBUILD_DOCUMENTATION=ON ..
+  - cmake -G "Visual Studio 14 2015 Win64" -DBUILD_DOCUMENTATION=OFF ..
   - cmake --build . --config %CONFIGURATION% --target install
   
 test_script:
@@ -47,8 +47,8 @@ test_script:
   #- cmd: test_executable.exe --log_level=test_suite #--run_test=int_test,config_test
   - ctest -VV --output-on-failure -C %CONFIGURATION%
 
-on_finish:
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#on_finish:
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 notifications:
   - provider: Email
