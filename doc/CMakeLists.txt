@@ -26,7 +26,7 @@ if(BUILD_DOCUMENTATION)
 
     #configure doxygen configuration file
     set(doxyfile_in ${PROJECT_SOURCE_DIR}/doc/Doxyfile.in)
-    set(doxyfile ${PROJECT_SOURCE_DIR}/Doxyfile)
+    set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
     configure_file(${doxyfile_in} ${doxyfile} @ONLY)
 
     #doc build only target
